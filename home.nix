@@ -3,6 +3,7 @@
 {
 	imports = [
 		./modules/zsh.nix
+		./modules/i3wm/i3wm.nix
 	];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -41,6 +42,7 @@
 		fzf
 		cargo
 		tree-sitter
+		i3
 		wget
 		rofi
 		curl
