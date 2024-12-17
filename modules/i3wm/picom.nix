@@ -6,4 +6,5 @@
 		inactiveOpacity = 0.8;
 		menuOpacity = 0.8;
 		shadow = true;
+	};
 }
