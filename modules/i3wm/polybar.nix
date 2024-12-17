@@ -6,13 +6,16 @@
 
 		config = {
 			"bar/main" = {
-				monitor = "\${env:MONITOR:eDP1}";
+				monitor = "HDMI-1";
+				monitor-fallback = "eDP-1";
 				width = "95%";
-				height = "3%";
-				radius = 0;
+				height = "2%";
+				radius = 10;
 				background = "#222222";
-				foreground = "#ffffff";
 				modules-center = "date";
+				border-size = 3;
+				border-color = "#ffffff";
+				padding = 10;
 			};
 
 			"module/date" = {

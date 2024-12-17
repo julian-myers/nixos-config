@@ -7,6 +7,7 @@
 		./modules/i3wm/polybar.nix
 		./modules/i3wm/picom.nix
 		./modules/i3wm/rofi.nix
+		./modules/autorandr.nix
 	];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -27,6 +28,10 @@
 		allowUnfree = true;
 	};
 
+
+	programs.autorandr = {
+		enable = true;
+	};
 	programs.git = {
 		enable = true;
 		userName = "julian-myers";

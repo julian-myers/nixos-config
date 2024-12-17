@@ -138,6 +138,7 @@
     libstdcxx5
     neovim
     zsh
+		alsa-utils
     kitty
     lshw
 		i3
