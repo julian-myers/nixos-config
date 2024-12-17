@@ -49,6 +49,7 @@
 		autorandr
 		spotify
 		fzf
+		screenkey
 		cargo
 		tree-sitter
 		i3
