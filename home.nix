@@ -41,6 +41,7 @@
   home.packages = with pkgs;[
 		texliveFull
 		unzip
+		autorandr
 		spotify
 		fzf
 		cargo
