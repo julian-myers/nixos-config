@@ -4,6 +4,9 @@
 	imports = [
 		./modules/zsh.nix
 		./modules/i3wm/i3wm.nix
+		./modules/i3wm/polybar.nix
+		./modules/i3wm/picom.nix
+		./modules/i3wm/rofi.nix
 	];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -43,11 +46,14 @@
 		cargo
 		tree-sitter
 		i3
+		feh
+		polybar
 		wget
 		rofi
 		curl
 		neofetch
 		tree
+		picom
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -67,6 +73,7 @@
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+		
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
