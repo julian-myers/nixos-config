@@ -58,6 +58,7 @@
 
 			element selected {
 				text-color: @blue1;
+				background-color: @black2;
 			}
 
 			element-text {
@@ -89,6 +90,8 @@
 			mainbox {
 				background-color: @bg;
 				children: [inputbar, listview];
+				border: 3px solid;
+				border-color: @white1;
 			}
 
 			prompt {

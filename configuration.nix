@@ -134,8 +134,6 @@
   programs.zsh.enable = true;
 
   users.defaultUserShell = pkgs.zsh;
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
 
 	fonts.packages = with pkgs; [
 		nerdfonts

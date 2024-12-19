@@ -8,6 +8,7 @@
 		./modules/i3wm/picom.nix
 		./modules/i3wm/rofi.nix
 		./modules/autorandr.nix
+		./modules/qutebrowser.nix
 	];
 
   home.username = "julian-m";
@@ -33,10 +34,16 @@
 	};
 
   home.packages = with pkgs;[
+		ripgrep
+		xclip
+		flameshot
 		texliveFull
 		cmatrix
 		unzip
+		btop
+		conky
 		papirus-icon-theme
+		dunst
 		autorandr
 		brightnessctl
 		pciutils
