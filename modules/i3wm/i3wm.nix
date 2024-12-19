@@ -67,6 +67,8 @@
 				{ command = "systemctl --user restart polybar"; always = true; notification = false; }
 				{ command = "exec picom -b"; always = true; notification = false; }
 				{ command = "feh --bg-scale ~/Personal/pics/wallpapers/ss.png"; always = true; notification = false; }
+				{ command = "exec flameshot"; always = true; notification = false; }
+				{ command = "exec dunst"; always = true; notification = false; }
 			];
 
 			bars = [];
@@ -85,8 +87,11 @@
 				# open terminal
 				"Mod1+Return" = "exec kitty";
 
+				# screen shot
+				"Mod1+Control+Shift+p" = "exec flameshot gui -c";
+
 				# close window 
-				"Mod1+Shift+q" = "kill";
+				"Mod1+BackSpace" = "kill";
 
 				# switch layouts
 				"Mod1+s" = "layout stacking";
@@ -105,8 +110,8 @@
 				"Mod1+Shift+c" = "exec autorandr --change";
 
 				# split windows
-				"Mod1+v" = "split v";
-				"Mod1+b" = "split h";
+				"Mod1+v" = "split v;exec notify-send 'tile vertically'";
+				"Mod1+b" = "split h;exec notify-send 'tile horizontally'";
 
 				# focus --- vim bindings
 				"Mod1+l" = "focus right";

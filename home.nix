@@ -34,16 +34,20 @@
 	};
 
   home.packages = with pkgs;[
+		qutebrowser
+		xcolor
+		obsidian
 		ripgrep
 		xclip
 		flameshot
 		texliveFull
+		xorg.xev
+		fortune
 		cmatrix
 		unzip
 		btop
 		conky
 		papirus-icon-theme
-		dunst
 		autorandr
 		brightnessctl
 		pciutils
