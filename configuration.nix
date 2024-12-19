@@ -18,6 +18,8 @@
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+	boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -77,7 +79,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.julian-m = {
@@ -94,11 +96,12 @@
     enable = true;
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
+	boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.edid_fallback=1" ];
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     powerManagement.finegrained = false;
 
     open = false;
@@ -108,10 +111,10 @@
 
     prime = {
       intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:14:0:0";
+      nvidiaBusId = "PCI:1:0:0";
       offload = {
       	enable = true;
-	enableOffloadCmd = true;
+				enableOffloadCmd = true;
       };
     };
     
@@ -133,6 +136,12 @@
   users.defaultUserShell = pkgs.zsh;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+	fonts.packages = with pkgs; [
+		nerdfonts
+		font-awesome
+	];
+
   environment.systemPackages = with pkgs; [
     vim
     libstdcxx5

@@ -3,33 +3,106 @@
 	xsession.windowManager.i3 = {
 		enable = true;
 
+
 		config = {
 
 			gaps = {
-				outer = 0;
+				outer = 5;
 				inner = 10;
 			};
 
 			terminal = "kitty";
 			menu = "rofi -show run";
 
+			window = {
+				commands = [
+					{
+						command = "border pixel 4";
+						criteria = {
+							class = ".*";
+						};
+					}
+				];
+			};
+			colors = {
+				background = "#B8C0E0";
+				focused = {
+					background = "#B8C0E0";
+					border = "#B8C0E0";
+					childBorder = "#B8C0E0";
+					indicator = "#B8C0E0";
+					text = "#B8C0E0";
+				};
+				unfocused = {
+					background = "#A5ADCB";
+					border = "#A5ADCB";
+					childBorder = "#A5ADCB";
+					indicator = "#A5ADCB";
+					text = "#A5ADCB";
+				};
+				focusedInactive = {
+					background = "#FFFFFF";
+					border = "#FFFFFF";
+					childBorder = "#FFFFFF";
+					indicator = "#FFFFFF";
+					text = "#FFFFFF";
+				};
+				urgent = {
+					background = "#ff0000";
+					border = "#ff0000";
+					childBorder = "#ff0000";
+					indicator = "#ff0000";
+					text = "#ff0000";
+				};
+				placeholder = {
+					background = "#FFFFFF";
+					border = "#FFFFFF";
+					childBorder = "#FFFFFF";
+					indicator = "#FFFFFF";
+					text = "#FFFFFF";
+				};
+			};
+
 			startup = [
 				{ command = "systemctl --user restart polybar"; always = true; notification = false; }
-				{ command = "feh --bg-scale ~/Personal/pics/wallpapers/foggymountains.png"; always = true; notification = false; }
+				{ command = "exec picom -b"; always = true; notification = false; }
+				{ command = "feh --bg-scale ~/Personal/pics/wallpapers/ss.png"; always = true; notification = false; }
 			];
 
 			bars = [];
 
 			keybindings = {
+
+				# controls for settings and such
+				"XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+				"XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+				"XF86MonBrightnessUp" = "exec brightnessctl set +100";
+				"XF86MonBrightnessDown" = "exec brightnessctl set 100-";
+
 				# restart i3 in place
 				"Mod1+Shift+r" = "restart";
 
 				# open terminal
 				"Mod1+Return" = "exec kitty";
 
+				# close window 
+				"Mod1+Shift+q" = "kill";
+
+				# switch layouts
+				"Mod1+s" = "layout stacking";
+				"Mod1+w" = "layout tabbed";
+				"Mod1+e" = "layout toggle split";
+
+				# move window
+				"Mod1+Shift+h" = "move left";
+				"Mod1+Shift+l" = "move right";
+				"Mod1+Shift+k" = "move up";
+				"Mod1+Shift+j" = "move down";
+
 				# these two switch my monitor setup for me
 				"Mod1+Shift+d" = "exec autorandr --load docked";
 				"Mod1+Shift+u" = "exec autorandr --load undocked";
+				"Mod1+Shift+c" = "exec autorandr --change";
 
 				# split windows
 				"Mod1+v" = "split v";
@@ -75,10 +148,11 @@
 				"Mod1+Shift+9" = "move container to workspace 9";
 
 				# rofi 
-				"Mod1+d" = '' exec "rofi -show run" '';
+				"Mod1+d" = '' exec "rofi -show drun" '';
 				
 			};
 
 		}; 
+
 	};
 }
