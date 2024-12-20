@@ -15,44 +15,8 @@
 				radius = 10;
 
 				fixed-center = true;
-				background = "#9924273A";
-
-				module-margin = 2;
-				separator = "";
-
-				modules-center = "workspaces";
-				modules-left = [
-					"text"
-					"date"
-				];
-
-				modules-right = [
-					"battery"
-					"alsa"
-					"network"
-				];
-
-				border-size = 3;
-				border-color = "#B8C0E0";
-				padding = 2;
-
-				font-0 = "JetBrainsMono Nerd Font:weight=semibold;size=12";
-				font-1 = "FontAwesome6Free:size=10";
-				font-2 = "JetBrainsMono Nerd Font:weight=semibold;size=16";
-				font-3 = "JetBrainsMono Nerd Font:weight=semibold;size=14";
-			};
-
-			"bar/monitor2" = {
-				monitor = "DP-1";
-
-				width = "100%";
-				height = "2%";
-				radius = 10;
-
-				fixed-center = true;
 				background = "#24273A";
-				
-				separator = "";
+
 				module-margin = 2;
 
 				modules-center = "workspaces";
@@ -76,7 +40,7 @@
 				font-2 = "JetBrainsMono Nerd Font:weight=semibold;size=16";
 				font-3 = "JetBrainsMono Nerd Font:weight=semibold;size=14";
 			};
-
+			
 			"module/date" = {
 				type = "internal/date";
 				internal = 1;
@@ -107,6 +71,7 @@
 				icon-default = "󰿉";
 
 				format = "<label-state>";
+				format-background = "#24273A";
 
 				label-active = "%icon%"; 
 				label-active-foreground = "ffffff";
@@ -125,6 +90,7 @@
 				label-empty-foreground = "#9aa2be";
 				label-empty-underline = "#9aa2be";
 				label-empty-font = 4;
+
 
 			};
 

@@ -4,7 +4,7 @@
 	imports = [
 		./modules/zsh.nix
 		./modules/i3wm/i3wm.nix
-		./modules/i3wm/polybar.nix
+		./modules/i3wm/polybar2.nix
 		./modules/i3wm/picom.nix
 		./modules/i3wm/rofi.nix
 		./modules/autorandr.nix
@@ -36,6 +36,7 @@
 
   home.packages = with pkgs;[
 		rofi-bluetooth
+		systemdUkify
 		libnotify
 		qutebrowser
 		xcolor

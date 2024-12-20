@@ -7,7 +7,7 @@
 		config = {
 
 			gaps = {
-				outer = 5;
+				outer = 15;
 				inner = 10;
 			};
 
@@ -26,6 +26,7 @@
 			};
 			colors = {
 				background = "#B8C0E0";
+
 				focused = {
 					background = "#B8C0E0";
 					border = "#B8C0E0";
@@ -33,6 +34,7 @@
 					indicator = "#B8C0E0";
 					text = "#B8C0E0";
 				};
+
 				unfocused = {
 					background = "#A5ADCB";
 					border = "#A5ADCB";
@@ -40,6 +42,7 @@
 					indicator = "#A5ADCB";
 					text = "#A5ADCB";
 				};
+
 				focusedInactive = {
 					background = "#FFFFFF";
 					border = "#FFFFFF";
@@ -47,6 +50,7 @@
 					indicator = "#FFFFFF";
 					text = "#FFFFFF";
 				};
+
 				urgent = {
 					background = "#ff0000";
 					border = "#ff0000";
@@ -54,6 +58,7 @@
 					indicator = "#ff0000";
 					text = "#ff0000";
 				};
+
 				placeholder = {
 					background = "#FFFFFF";
 					border = "#FFFFFF";
@@ -61,6 +66,7 @@
 					indicator = "#FFFFFF";
 					text = "#FFFFFF";
 				};
+
 			};
 
 			startup = [
@@ -83,6 +89,9 @@
 
 				# restart i3 in place
 				"Mod1+Shift+r" = "restart";
+
+				# xcolor picker
+				"Mod4+x" = "exec xcolor";
 
 				# open terminal
 				"Mod1+Return" = "exec kitty";
