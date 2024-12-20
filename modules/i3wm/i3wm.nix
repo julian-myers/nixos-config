@@ -90,6 +90,9 @@
 				# screen shot
 				"Mod1+Control+Shift+p" = "exec flameshot gui -c";
 
+				# bluetooth menu
+				"Mod4+b" = "exec rofi-bluetooth";
+
 				# close window 
 				"Mod1+BackSpace" = "kill";
 
@@ -154,6 +157,7 @@
 
 				# rofi 
 				"Mod1+d" = '' exec "rofi -show drun" '';
+				"Mod4+d" = '' exec "rofi -show run" '';
 				
 			};
 

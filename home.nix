@@ -9,6 +9,7 @@
 		./modules/i3wm/rofi.nix
 		./modules/autorandr.nix
 		./modules/qutebrowser.nix
+		./modules/dunst.nix
 	];
 
   home.username = "julian-m";
@@ -34,6 +35,8 @@
 	};
 
   home.packages = with pkgs;[
+		rofi-bluetooth
+		libnotify
 		qutebrowser
 		xcolor
 		obsidian
@@ -43,6 +46,7 @@
 		texliveFull
 		xorg.xev
 		fortune
+		findutils
 		cmatrix
 		unzip
 		btop
@@ -71,7 +75,7 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  home.sessionVariables = {
+  home.sessionVariables = rec {
 		EDITOR = "neovim";
   };
 

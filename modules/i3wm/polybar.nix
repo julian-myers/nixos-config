@@ -50,7 +50,9 @@
 				fixed-center = true;
 				background = "#24273A";
 				
+				separator = "";
 				module-margin = 2;
+
 				modules-center = "workspaces";
 				modules-left = [
 					"text"
@@ -154,6 +156,13 @@
 				format = "<label>";
 				label = "";
 
+			};
+
+			"module/bluetooth" = {
+				type = "custom/script";
+				exec = "/home/julian-m/.nix-profile/bin/rofi-bluetooth --status";
+				interval = 1;
+				click-left = "/home/julian-m/.nix-profile/bin/rofi-bluetooth";
 			};
 
 		};

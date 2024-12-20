@@ -11,16 +11,13 @@
 
 		settings = {
 			global = {
-				width = 300;
-				height = 300;
+				width = 200;
+				height = 200;
 
-				origin = "center";
+				origin = "top-right";
 				transparency = 10;
-				frame-color = "b5bddd";
 				font = "JetBrainsMono";
 				
-				frame-width = "3";
-				corner-radius = "10";
 			};
 
 		};
