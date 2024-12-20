@@ -9,17 +9,15 @@
 			"bar/monitor1" = {
 				monitor = "HDMI-1";
 				monitor-fallback = "eDP-1";
+				pin-workspaces = true;
 
 				width = "100%";
 				height = "2.5%";
 				radius = 10;
 
 				fixed-center = true;
-				background = "#9924273A";
-
-				module-margin = 2;
-				separator = "";
-
+				background = "#24273A";
+				
 				modules-center = "workspaces";
 				modules-left = [
 					"text"
@@ -32,29 +30,27 @@
 					"network"
 				];
 
-				border-size = 3;
+				border-size = 2;
 				border-color = "#B8C0E0";
-				padding = 2;
 
-				font-0 = "JetBrainsMono Nerd Font:weight=semibold;size=12";
+				font-0 = "JetBrainsMono Nerd Font:weight=semibold:size=12";
 				font-1 = "FontAwesome6Free:size=10";
-				font-2 = "JetBrainsMono Nerd Font:weight=semibold;size=16";
-				font-3 = "JetBrainsMono Nerd Font:weight=semibold;size=14";
+				font-2 = "JetBrainsMono Nerd Font:weight=semibold:size=18";
+				font-3 = "JetBrainsMono Nerd Font:weight=semibold:size=14";
 			};
 
 			"bar/monitor2" = {
 				monitor = "DP-1";
+				pin-workspaces = true;
 
 				width = "100%";
-				height = "2%";
+				height = "2.5%";
 				radius = 10;
+
 
 				fixed-center = true;
 				background = "#24273A";
 				
-				separator = "";
-				module-margin = 2;
-
 				modules-center = "workspaces";
 				modules-left = [
 					"text"
@@ -67,24 +63,28 @@
 					"network"
 				];
 
-				border-size = 3;
+				border-size = 2;
 				border-color = "#B8C0E0";
-				padding = 2;
 
-				font-0 = "JetBrainsMono Nerd Font:weight=semibold;size=12";
+				font-0 = "JetBrainsMono Nerd Font:weight=semibold:size=12";
 				font-1 = "FontAwesome6Free:size=10";
-				font-2 = "JetBrainsMono Nerd Font:weight=semibold;size=16";
-				font-3 = "JetBrainsMono Nerd Font:weight=semibold;size=14";
+				font-2 = "JetBrainsMono Nerd Font:weight=semibold:size=18";
+				font-3 = "JetBrainsMono Nerd Font:weight=semibold:size=14";
 			};
 
 			"module/date" = {
 				type = "internal/date";
 				internal = 1;
+
 				date = "%m-%d-%y";
 				time = "%I:%M";
+
+				format = "<label>";
+				format-background = "#89d2c7";
+
 				label = "  %date%  %time% ";
 				label-font = 4;
-				label-foreground = "#B8C0E0";
+				label-foreground = "#494c63";
 			};
 
 			"module/workspaces" = {
@@ -105,7 +105,6 @@
 				icon-8 = "9;󰎼";
 
 				icon-default = "󰿉";
-
 				format = "<label-state>";
 
 				label-active = "%icon%"; 
@@ -125,7 +124,6 @@
 				label-empty-foreground = "#9aa2be";
 				label-empty-underline = "#9aa2be";
 				label-empty-font = 4;
-
 			};
 
 			"module/battery" = {
@@ -182,13 +180,18 @@
 
 				label-muted = "󰸈";
 				format-muted = "<label-muted>";
+				format-muted-foreground = "#494c63";
+				format-muted-background = "#89d2c7";
+				format-muted-padding = 1;
 
 				ramp-volume-0 = "";
 				ramp-volume-1 = "";
 				ramp-volume-2 = "";
 
 				format-volume = "<ramp-volume> <label-volume>";
-				format-volume-foreground = "#7ec9da";
+				format-volume-foreground = "#494c63";
+				format-volume-background = "#89d2c7";
+				format-volume-padding = 1;
 			};
 
 			"module/network" = {
@@ -198,28 +201,37 @@
 				interface-type = "wireless";
 
 				format-connected = "<ramp-signal> <label-connected>";
-				format-connect-padding = 5;
-				format-connect-underline = "#494c63";
+				format-connected-background = "#89abf0";
+				format-connected-spacing = 1;
 				label-connected = "%essid%";
-				label-connected-foreground = "#89abf0";
+				label-connected-foreground = "#494c63";
+				label-connected-padding-right = 1;
 
 				format-disconnected = "<label-disconnected>";
+				format-disconnected-background = "#89abf0";
+				format-disconnected-spacing = 1;
 				label-disconnected = "󰤫";
-				label-disconnected-foreground = "#d793a1";
+				label-disconnected-foreground = "#494c63";
+				label-disconnected-padding = 0;
 
 				ramp-signal-0 = "󰤟";
 				ramp-signal-1 = "󰤢";
 				ramp-signal-2 = "󰤥";
 				ramp-signal-3 = "󰤨";
 				ramp-signal-4 = "󰤨";
-				ramp-signal-foreground = "#89abf0";
+				ramp-signal-foreground = "#494c63";
+				ramp-signal-padding = 1;
 			};
 
 			"module/text" = {
 				type = "custom/text";
 				format = "<label>";
+				format-background = "#89abf0";
+				format-padding = 0;
+				format-spacing = 1;
 				label = "";
-				label-foreground = "#7ec9da";
+				label-foreground = "#494c63";
+				label-padding = 2;
 
 			};
 

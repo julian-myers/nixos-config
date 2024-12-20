@@ -15,7 +15,7 @@
 				radius = 10;
 
 				fixed-center = true;
-				background = "#24273A";
+				background = "#00000000";
 
 				module-margin = 2;
 
@@ -31,8 +31,6 @@
 					"network"
 				];
 
-				border-size = 3;
-				border-color = "#B8C0E0";
 				padding = 2;
 
 				font-0 = "JetBrainsMono Nerd Font:weight=semibold;size=12";
@@ -71,7 +69,9 @@
 				icon-default = "󰿉";
 
 				format = "<label-state>";
-				format-background = "#24273A";
+				format-background = "#0024273A";
+				format-border-size = 3;
+				format-border-color = "#B8C0E0";
 
 				label-active = "%icon%"; 
 				label-active-foreground = "ffffff";
