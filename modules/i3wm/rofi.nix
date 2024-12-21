@@ -30,13 +30,13 @@
 
 				yellow1: #EED49F;
 
-				blue1: #8AADF4;
+				blue1: #eed49f;
 
 				magenta1: #F5BDE6; 
 
 				cyan1: #8BD5CA;
 
-				white1: #B8C0E0;
+				white1: #cdc7d2;
 				white2: #A5ADCB;
 
 				background-color: @bg;

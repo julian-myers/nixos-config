@@ -36,11 +36,11 @@
 				};
 
 				focused = {
-					background = "#c3beca";
-					border = "#c3beca";
-					childBorder = "#c3beca";
-					indicator = "#c3beca";
-					text = "#c3beca";
+					background = "#cdc7d2";
+					border = "#cdc7d2";
+					childBorder = "#cdc7d2";
+					indicator = "#cdc7d2";
+					text = "#cdc7d2";
 				};
 
 				focusedInactive = {

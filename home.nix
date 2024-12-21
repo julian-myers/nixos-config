@@ -10,7 +10,6 @@
 		./modules/autorandr.nix
 		./modules/qutebrowser.nix
 		./modules/dunst.nix
-		./modules/mpd.nix
 	];
 
   home.username = "julian-m";
@@ -36,6 +35,8 @@
 	};
 
   home.packages = with pkgs;[
+		mpd
+		mopidy
 		rofi-bluetooth
 		systemdUkify
 		libnotify

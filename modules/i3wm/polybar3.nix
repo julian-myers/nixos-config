@@ -66,6 +66,7 @@
 					"margincenter"
 					"network"
 					"marginright"
+					"power"
 				];
 				
 			};
@@ -255,6 +256,35 @@
 				type = "custom/script";
 				interval = 1;
 				exec = "~/Code/spotify-status.py";
+			};
+
+			"module/power" = {
+				type = "custom/text";
+
+				double-click-right = "reboot.sh --reboot";
+				double-click-left = "reboot.sh --sleep";
+				double-click-middle = "reboot.sh --shutdown";
+
+				
+				label = "";
+				label-font = 1;
+				label-padding = 1;
+				label-spacing = 1;
+				label-minlen = 3;
+				label-alignment = "center";
+				format-prefix = "";
+				format-prefix-foreground = "#e98594";
+				format-prefix-background = "#00000000";
+				format-prefix-font = 5;
+				format-suffix = "";
+				format-suffix-foreground = "#e98594";
+				format-suffix-background = "#00000000";
+				format-suffix-font = 5;
+				format-background = "#e98594";
+
+				format = "<label>";
+				format-font = 5;
+
 			};
 
 		};
