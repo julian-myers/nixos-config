@@ -141,6 +141,20 @@
 	];
 
   environment.systemPackages = with pkgs; [
+		glib
+		glibc
+    dbus-glib
+    pkg-config
+    python3
+		cmake
+    python3Packages.setuptools
+    python3Packages.cython
+		ninja
+		python3Packages.ninja
+		python3Full
+		python3Packages.dbus-python
+		python3Packages.pip
+		dbus
     vim
     libstdcxx5
     neovim
@@ -153,7 +167,6 @@
     nodejs_23
     brave
     wget
-    python3
     gcc
   ];
 
