@@ -10,6 +10,9 @@
       ./hardware-configuration.nix
     ];
 
+	security.sudo.extraConfig = ''
+		yourusername ALL=(ALL) NOPASSWD: /sbin/reboot, /sbin/poweroff, /bin/systemctl suspend
+	'';
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

@@ -8,7 +8,7 @@
 
 			gaps = {
 				outer = 15;
-				inner = 10;
+				inner = 15;
 			};
 
 			terminal = "kitty";
@@ -17,7 +17,7 @@
 			window = {
 				commands = [
 					{
-						command = "border pixel 4";
+						command = "border pixel 2";
 						criteria = {
 							class = ".*";
 						};

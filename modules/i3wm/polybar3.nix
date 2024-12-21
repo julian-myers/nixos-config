@@ -26,6 +26,10 @@
 				white2 = "#a5adcb";
 			};
 
+			"global/wm" = {
+				margin-top = 2;
+			};
+
 			"bar/monitor1" = {
 				# monitor settings
 				monitor = "HDMI-1";
@@ -37,7 +41,7 @@
 				width = "100%";
 				height = "25pt";
 				background = "#00000000";
-				padding = 3;
+				padding = 5;
 
 				# fonts
 				font-0 = "JetBrainsMono Nerd Font:weight=semibold:size=12";
@@ -49,6 +53,10 @@
 				# modules
 				modules-left = [
 					"workspaces"	
+					"space"
+					"marginleft"
+					"brightness"
+					"marginright"
 				];
 
 				modules-center = [
@@ -66,6 +74,7 @@
 					"margincenter"
 					"network"
 					"marginright"
+					"space"
 					"power"
 				];
 				
@@ -259,12 +268,13 @@
 			};
 
 			"module/power" = {
-				type = "custom/text";
+				type = "custom/script";
 
-				double-click-right = "reboot.sh --reboot";
-				double-click-left = "reboot.sh --sleep";
-				double-click-middle = "reboot.sh --shutdown";
+				double-click-right = "~/reboot.sh reboot";
+				double-click-left = "~/reboot.sh sleep";
+				double-click-middle = "~/reboot.sh shutdown";
 
+				exec = "echo ";
 				
 				label = "";
 				label-font = 1;
@@ -284,7 +294,36 @@
 
 				format = "<label>";
 				format-font = 5;
+			};
 
+			"module/brightness" = {
+				type = "internal/backlight";
+				card = "nvidia_wmi_ec_backlight";
+				
+				label = "%percentage%";
+				bar-format = "%fill%%empty%";
+				bar-fill = "";
+				bar-foreground = "#eed49f"; 
+				bar-empty = "";
+				bar-width = 10;
+
+				format = "<bar> <label>";
+				format-prefix = "  ";
+				format-prefix-foreground = "#cdc7d2";
+				format-prefix-background = "#353349";
+				format-background = "#353349";
+				format-padding = 1;
+			};
+
+			"module/space" = {
+				type = "custom/text";
+
+				label = "foo";
+
+				format = "<label>";
+				format-background = "#00000000";
+				format-foreground = "#00000000";
+				format-margin = 3;
 			};
 
 		};
