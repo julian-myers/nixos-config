@@ -14,7 +14,7 @@
 		executable = true;
 	};
 	home.file.".config/ranger/colorschemes/gruvbox.py" = {
-		source = ./colorshemes/gruvbox.py;
+		source = ./colorschemes/gruvbox.py;
 		executable = true;
 	};
 }
