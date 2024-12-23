@@ -29,7 +29,7 @@
 					./home.nix
 					./modules/zsh.nix
 					./modules/i3wm/i3wm.nix
-					./modules/i3wm/polybar3.nix
+					./modules/i3wm/polybar.nix
 					./modules/i3wm/picom.nix
 					./modules/i3wm/rofi.nix
 					./modules/autorandr.nix

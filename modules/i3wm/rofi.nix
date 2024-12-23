@@ -15,29 +15,29 @@
 			@theme "/dev/null"
 
 			* {
-				bg: #24273A;
-				bg-alt: #F4DBD6;
+				bg: #3c3836;
+				bg-alt: #32302f;
 
-				fg: #CAD3F5;
-				fg-alt: #494D64;
+				fg: #d4be98;
+				fg-alt: #665c54;
 
-				black1: #494D64;
-				black2: #5B6078;
+				black1: #665c54;
+				black2: #928374;
 
-				red1: #ED8796;
+				red1: #EA6962;
 
-				green1: #A6DA95;
+				green1: #a9b665;
 
-				yellow1: #EED49F;
+				yellow1: #e78a4e;
 
-				blue1: #eed49f;
+				blue1: #7daea3;
 
-				magenta1: #F5BDE6; 
+				magenta1: #d3869b; 
 
-				cyan1: #8BD5CA;
+				cyan1: #89b482;
 
-				white1: #cdc7d2;
-				white2: #A5ADCB;
+				white1: #d4be98;
+				white2: #d4be98;
 
 				background-color: @bg;
 
@@ -57,7 +57,7 @@
 			}
 
 			element selected {
-				text-color: @blue1;
+				text-color: @yellow1;
 				background-color: @black2;
 			}
 

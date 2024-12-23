@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 let
   transparent = "#00000000";
-	bg = "#32302f";
+	bg = "#3c3836";
+	#bg = "#32302f";
 	fg = "#d4be98";
 	black = "#665c54";
 	black-alt = "#928374";
@@ -213,6 +214,8 @@ in
 				label = " %time%";
 				label-foreground = white;
 				label-font = 1;
+				label-underline = magenta;
+				label-overline = magenta;
 				
 				format = "<label>";
 				format-background = bg;
@@ -247,6 +250,7 @@ in
 				animation-charging-framerate = "200";
 
 				label-charging = "%percentage%%";
+
 				label-discharging = "%percentage%%";
 
 				format-charging = "<animation-charging> <label-charging>";
@@ -397,7 +401,7 @@ in
 				label-alignment = "center";
 
 				format = "<label>";
-				format-foreground = blue;
+				format-foreground = yellow;
 				format-background = bg;
 				format-padding = 1;
 			};

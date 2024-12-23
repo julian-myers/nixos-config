@@ -4,10 +4,10 @@
 		enable = true;
 		font = {
 			name = "JetBrainsMono";
-			size = 14;
+			size = 12;
 		};
 		shellIntegration.enableZshIntegration = true;
 
-		themeFile = "GruvboxMaterialDarkSoft";
+		themeFile = "GruvboxMaterialDarkHard";
 	};
 }

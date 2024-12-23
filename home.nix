@@ -11,6 +11,7 @@
 		./modules/qutebrowser.nix
 		./modules/dunst.nix
 		./modules/kitty.nix
+		./modules/ranger/ranger.nix
 	];
 
   home.username = "julian-m";
@@ -37,6 +38,7 @@
 
   home.packages = with pkgs;[
 		kitty-themes
+		ranger
 		mpd
 		mopidy
 		rofi-bluetooth
