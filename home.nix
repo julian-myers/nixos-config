@@ -10,6 +10,7 @@
 		./modules/autorandr.nix
 		./modules/qutebrowser.nix
 		./modules/dunst.nix
+		./modules/kitty.nix
 	];
 
   home.username = "julian-m";

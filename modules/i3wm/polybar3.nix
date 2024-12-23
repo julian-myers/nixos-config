@@ -49,6 +49,7 @@
 				font-2 = "JetBrainsMono Nerd Font:weight=semibold:size=16";
 				font-3 = "JetBrainsMono Nerd Font:weight=semibold:size=18";
 				font-4 = "JetBrainsMono Nerd Font:weight=semibold:size=25";
+				font-5 = "JetBrainsMono Nerd Font:weight=semibold:size=8";
 
 				# modules
 				modules-left = [
@@ -69,7 +70,9 @@
 
 					"marginleft"
 					"alsa"
-					"margincenter"
+					"marginright"
+					"space"
+					"marginleft"
 					"battery"
 					"margincenter"
 					"network"
@@ -244,7 +247,7 @@
 				master-mixer = "Master";
 
 				label-muted = "󰸈";
-				format-muted = "<label-muted>";
+				format-muted = "<label-muted> <bar-volume>";
 				format-muted-foreground = "#f1bae2";
 				format-muted-background = "#353349";
 				format-muted-padding = 1;
@@ -253,10 +256,17 @@
 				ramp-volume-1 = "";
 				ramp-volume-2 = "";
 
+				bar-volume-format = "%fill%%empty%";
+				bar-volume-fill = "";
+				bar-volume-foreground = "#eed49f"; 
+				bar-volume-empty = "";
+				bar-volume-width = 10;
+
 				label-volume-foreground = "#cdc7d2";
-				label-volume-padding = 1;
-				format-volume = "<ramp-volume> <label-volume>";
-				format-volume-foreground = "#f1bae2";
+				label-volume-padding-right = 2;
+				label-volume-font = 2;
+				format-volume = "<ramp-volume> <bar-volume>";
+				format-volume-foreground = "#cdc7d2";
 				format-volume-background = "#353349";
 				format-volume-padding = 1;
 			};
@@ -270,9 +280,9 @@
 			"module/power" = {
 				type = "custom/script";
 
-				double-click-right = "~/reboot.sh reboot";
-				double-click-left = "~/reboot.sh sleep";
-				double-click-middle = "~/reboot.sh shutdown";
+				double-click-right = "~/scripts/reboot.sh reboot";
+				double-click-left = "~/scripts/reboot.sh sleep";
+				double-click-middle = "~/scripts/reboot.sh shutdown";
 
 				exec = "echo ";
 				
@@ -325,6 +335,22 @@
 				format-foreground = "#00000000";
 				format-margin = 3;
 			};
+
+			"module/nixos" = {
+				type = "custom/text";
+
+				label = "";
+				label-font = 3;
+				label-minlen = 2;
+				label-alignment = "center";
+
+				format = "<label>";
+				format-foreground = "#6997bb";
+				format-background = "#353349";
+				format-padding = 1;
+			};
+
+
 
 		};
 		

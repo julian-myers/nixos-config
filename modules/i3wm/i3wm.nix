@@ -90,14 +90,11 @@
 				# restart i3 in place
 				"Mod1+Shift+r" = "restart";
 
-				# xcolor picker
-				"Mod4+x" = "exec xcolor";
-
 				# open terminal
 				"Mod1+Return" = "exec kitty";
 
 				# screen shot
-				"Mod1+Control+Shift+p" = "exec flameshot gui -c";
+				"Mod4+Print" = "exec flameshot gui";
 
 				# bluetooth menu
 				"Mod4+b" = "exec rofi-bluetooth";
