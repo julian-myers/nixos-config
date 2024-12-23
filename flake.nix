@@ -1,8 +1,5 @@
 {
-
-
 	description = "My flake";
-
 
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-24.11";
@@ -24,13 +21,24 @@
 				];
 			};
 		};
+
 		homeConfigurations = {
 			julian-m = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
 				modules = [
 					./home.nix
+					./modules/zsh.nix
+					./modules/i3wm/i3wm.nix
+					./modules/i3wm/polybar3.nix
+					./modules/i3wm/picom.nix
+					./modules/i3wm/rofi.nix
+					./modules/autorandr.nix
+					./modules/qutebrowser.nix
+					./modules/dunst.nix
+					./modules/kitty.nix
 				];
 			};
+
 		};
 	};
 

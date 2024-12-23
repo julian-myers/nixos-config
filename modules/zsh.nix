@@ -30,7 +30,7 @@
 		zsh-abbr = {
 			enable = true;
 			abbreviations = {
-				hms = "home-manager switch --flake .";
+				hms = "home-manager switch --flake .#julian-m";
 				nrs = "nixos-rebuild switch --flake .";
 			};
 		};

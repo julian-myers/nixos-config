@@ -1,133 +1,224 @@
 { config, pkgs, ... }:
-
+let
+  transparent = "#00000000";
+	bg = "#32302f";
+	fg = "#d4be98";
+	black = "#665c54";
+	black-alt = "#928374";
+	red = "#ea6962";
+	green = "#a9b665";
+	yellow = "#e78a4e";
+	yellow-alt = "#d8a657";
+	blue = "#7daea3";
+	magenta = "#d3869b";
+	cyan = "#89b482";
+	white = "#d4be98";
+in 
 {
 	services.polybar = {
-
 		enable = true;
 
 		config = {
+			"global/wm" = {
+				margin-bottom = 5;
+			};
+
 			"bar/monitor1" = {
+				# monitor settings
 				monitor = "HDMI-1";
 				monitor-fallback = "eDP-1";
-				pin-workspaces = true;
 
+
+				offset-y = "5pt";
+
+				# bar settings
 				width = "100%";
-				height = "2.5%";
-				radius = 10;
+				height = "25pt";
+				background = "#00000000";
+				padding = 5;
 
-				fixed-center = true;
-				background = "#24273A";
-				
-				modules-center = "workspaces";
+				# fonts
+				font-0 = "JetBrainsMono Nerd Font:weight=semibold:size=12";
+				font-1 = "JetBrainsMono Nerd Font:weight=semibold:size=14";
+				font-2 = "JetBrainsMono Nerd Font:weight=semibold:size=16";
+				font-3 = "JetBrainsMono Nerd Font:weight=semibold:size=18";
+				font-4 = "JetBrainsMono Nerd Font:weight=semibold:size=25";
+				font-5 = "JetBrainsMono Nerd Font:weight=semibold:size=8";
+
+				# modules
 				modules-left = [
-					"text"
-					"date"
+					"workspaces"	
+					"space"
+					"marginleft"
+					"brightness"
+					"marginright"
+				];
+
+				modules-center = [
+					"marginleft"
+					"time"
+					"marginright"
 				];
 
 				modules-right = [
-					"battery"
+
+					"marginleft"
 					"alsa"
+					"marginright"
+					"space"
+					"marginleft"
+					"battery"
+					"margincenter"
 					"network"
+					"margincenter"
+					"nixos"
+					"marginright"
+					"space"
+					"power"
 				];
-
-				border-size = 2;
-				border-color = "#B8C0E0";
-
-				font-0 = "JetBrainsMono Nerd Font:weight=semibold:size=12";
-				font-1 = "FontAwesome6Free:size=10";
-				font-2 = "JetBrainsMono Nerd Font:weight=semibold:size=18";
-				font-3 = "JetBrainsMono Nerd Font:weight=semibold:size=14";
+				
 			};
 
 			"bar/monitor2" = {
+				# monitor settings
 				monitor = "DP-1";
-				pin-workspaces = true;
 
+				offset-y = "5pt";
+
+				# bar settings
 				width = "100%";
-				height = "2.5%";
-				radius = 10;
+				height = "25pt";
+				background = transparent;
+				padding = 5;
 
+				# fonts
+				font-0 = "JetBrainsMono Nerd Font:weight=semibold:size=12";
+				font-1 = "JetBrainsMono Nerd Font:weight=semibold:size=14";
+				font-2 = "JetBrainsMono Nerd Font:weight=semibold:size=16";
+				font-3 = "JetBrainsMono Nerd Font:weight=semibold:size=18";
+				font-4 = "JetBrainsMono Nerd Font:weight=semibold:size=25";
+				font-5 = "JetBrainsMono Nerd Font:weight=semibold:size=8";
 
-				fixed-center = true;
-				background = "#24273A";
-				
-				modules-center = "workspaces";
+				# modules
 				modules-left = [
-					"text"
-					"date"
+					"workspaces"	
+					"space"
+					"marginleft"
+					"brightness"
+					"marginright"
+				];
+
+				modules-center = [
+					"marginleft"
+					"time"
+					"marginright"
 				];
 
 				modules-right = [
-					"battery"
+
+					"marginleft"
 					"alsa"
+					"marginright"
+					"space"
+					"marginleft"
+					"battery"
+					"margincenter"
 					"network"
+					"margincenter"
+					"nixos"
+					"marginright"
+					"space"
+					"power"
 				];
-
-				border-size = 2;
-				border-color = "#B8C0E0";
-
-				font-0 = "JetBrainsMono Nerd Font:weight=semibold:size=12";
-				font-1 = "FontAwesome6Free:size=10";
-				font-2 = "JetBrainsMono Nerd Font:weight=semibold:size=18";
-				font-3 = "JetBrainsMono Nerd Font:weight=semibold:size=14";
+				
 			};
+			# margins modules that look real nice 
+			# these are for copying and pasting faster   󰝤 󰨓  󰿠
 
-			"module/date" = {
-				type = "internal/date";
-				internal = 1;
-
-				date = "%m-%d-%y";
-				time = "%I:%M";
+			"module/marginleft" = {
+				type = "custom/text";
 
 				format = "<label>";
-				format-background = "#89d2c7";
-
-				label = "  %date%  %time% ";
-				label-font = 4;
-				label-foreground = "#494c63";
+				format-background = transparent;
+				label = "";
+				label-font = 5;
+				label-foreground = bg; 
+				format-padding = 0;
 			};
+
+			"module/marginright" = {
+				type = "custom/text";
+
+				format = "<label>";
+				format-background = transparent;
+				label = "";
+				label-font = 5;
+				label-foreground = bg; 
+				format-padding = 0;
+			};
+
+			"module/margincenter" = {
+				type = "custom/text";
+
+				format = "<label>";
+				format-background = bg;
+				label = "󰿠";
+				label-font = 5;
+				label-foreground = bg; 
+				format-padding = 2;
+				format-spacing = 5;
+			};
+
+			# ----- module configs -------
+
 
 			"module/workspaces" = {
 				type = "internal/xworkspaces";
 
-				group-by-monitor = false;
-				enable-click = true;
-				enable-scroll = false;
+				pin-workspaces = true;
 
-				icon-0 = "1;󰎤";
-				icon-1 = "2;󰎧";
-				icon-2 = "3;󰎪";
-				icon-3 = "4;󰎭";
-				icon-4 = "5;󰎱";
-				icon-5 = "6;󰎳";
-				icon-6 = "7;󰎶";
-				icon-7 = "8;󰎹";
-				icon-8 = "9;󰎼";
+				# workspace icons/names
+				icon-0 = "1;";
+				icon-1 = "2;";
+				icon-2 = "3;";
+				icon-3 = "4;";
+				icon-4 = "5;";
+				icon-5 = "6;";
+				icon-6 = "7;";
+				icon-7 = "8;";
+				icon-8 = "9;";
+				icon-default = "";
 
-				icon-default = "󰿉";
+				# formatting
 				format = "<label-state>";
+				format-background = transparent;
 
-				label-active = "%icon%"; 
-				label-active-foreground = "ffffff";
+				label-active = "";
+				label-active-foreground = yellow-alt;
+				label-active-font = 2;
 				label-active-padding = 1;
-				label-active-underline = "#B8C0E0";
-				label-active-font = 3;
 
 				label-occupied = "%icon%";
-				label-occupied-foreground = "a3abc8";
+				label-occupied-foreground = magenta;
+				label-occupied-font = 2;
 				label-occupied-padding = 1;
-				label-occupied-underline = "#B8C0E0";
-				label-occupied-font = 4;
+			};
 
-				label-empty = "%icon%";
-				label-empty-padding = 1;
-				label-empty-foreground = "#9aa2be";
-				label-empty-underline = "#9aa2be";
-				label-empty-font = 4;
+			"module/time" = {
+				type = "internal/date";
+				internal = 1;
+
+				time = "%I:%M";
+
+				label = " %time%";
+				label-foreground = white;
+				label-font = 1;
+				
+				format = "<label>";
+				format-background = bg;
 			};
 
 			"module/battery" = {
-
 				type = "internal/battery";
 				low-at = 10;
 				full-at = 99;
@@ -159,39 +250,22 @@
 				label-discharging = "%percentage%%";
 
 				format-charging = "<animation-charging> <label-charging>";
-				format-charging-foreground = "#99d098";
+				format-charging-foreground = green;
+				format-charging-background = bg;
 
 				format-discharging = "<ramp-capacity> <label-discharging>";
-				format-discharging-foreground = "#B8C0E0";
+				format-discharging-foreground = white;
+				format-discharging-background = bg;
 
 				label-full = "󱟢";
 				format-full = "<label-full>";
-				format-full-foreground = "#B8C0E0";
+				format-full-foreground = green;
+				format-full-background = bg;
 
 				label-low = "󱃍";
 				format-low = "<label-low>";
-				format-low-foreground = "#e98594";
-			};	
-
-			"module/alsa" = {
-				type = "internal/alsa";
-				master-soundcard = "default";
-				master-mixer = "Master";
-
-				label-muted = "󰸈";
-				format-muted = "<label-muted>";
-				format-muted-foreground = "#494c63";
-				format-muted-background = "#89d2c7";
-				format-muted-padding = 1;
-
-				ramp-volume-0 = "";
-				ramp-volume-1 = "";
-				ramp-volume-2 = "";
-
-				format-volume = "<ramp-volume> <label-volume>";
-				format-volume-foreground = "#494c63";
-				format-volume-background = "#89d2c7";
-				format-volume-padding = 1;
+				format-low-foreground = red;
+				format-low-background = bg;
 			};
 
 			"module/network" = {
@@ -201,54 +275,141 @@
 				interface-type = "wireless";
 
 				format-connected = "<ramp-signal> <label-connected>";
-				format-connected-background = "#89abf0";
-				format-connected-spacing = 1;
-				label-connected = "%essid%";
-				label-connected-foreground = "#494c63";
-				label-connected-padding-right = 1;
+				format-connected-background = bg;
+				format-connected-foreground = blue;
+				label-connected = " '%essid%' ";
+				label-connected-foreground = white;
 
 				format-disconnected = "<label-disconnected>";
-				format-disconnected-background = "#89abf0";
-				format-disconnected-spacing = 1;
+				format-disconnected-background = bg;
+				format-disconnected-foreground = red;
 				label-disconnected = "󰤫";
-				label-disconnected-foreground = "#494c63";
-				label-disconnected-padding = 0;
 
 				ramp-signal-0 = "󰤟";
 				ramp-signal-1 = "󰤢";
 				ramp-signal-2 = "󰤥";
 				ramp-signal-3 = "󰤨";
 				ramp-signal-4 = "󰤨";
-				ramp-signal-foreground = "#494c63";
-				ramp-signal-padding = 1;
 			};
 
-			"module/text" = {
-				type = "custom/text";
-				format = "<label>";
-				format-background = "#89abf0";
-				format-padding = 0;
-				format-spacing = 1;
-				label = "";
-				label-foreground = "#494c63";
-				label-padding = 2;
+			"module/alsa" = {
+				type = "internal/alsa";
+				master-soundcard = "default";
+				master-mixer = "Master";
 
+				label-muted = "󰸈";
+				format-muted = "<label-muted> <bar-volume>";
+				format-muted-foreground = white;
+				format-muted-background = bg;
+				format-muted-padding = 1;
+
+				ramp-volume-0 = "";
+				ramp-volume-1 = "";
+				ramp-volume-2 = "";
+
+				bar-volume-format = "%fill%%empty%";
+				bar-volume-fill = "";
+				bar-volume-foreground = white; 
+				bar-volume-empty = "";
+				bar-volume-width = 10;
+
+				label-volume-foreground = white;
+				label-volume-padding-right = 2;
+				label-volume-font = 2;
+				format-volume = "<ramp-volume> <bar-volume>";
+				format-volume-foreground = white;
+				format-volume-background = bg;
+				format-volume-padding = 1;
 			};
 
-			"module/bluetooth" = {
+			"module/spotify" = {
 				type = "custom/script";
-				exec = "/home/julian-m/.nix-profile/bin/rofi-bluetooth --status";
 				interval = 1;
-				click-left = "/home/julian-m/.nix-profile/bin/rofi-bluetooth";
+				exec = "~/Code/spotify-status.py";
 			};
+
+			"module/power" = {
+				type = "custom/script";
+
+				double-click-right = "~/scripts/reboot.sh reboot";
+				double-click-left = "~/scripts/reboot.sh sleep";
+				double-click-middle = "~/scripts/reboot.sh shutdown";
+
+				exec = "echo ";
+				
+				label = "";
+				label-font = 1;
+				label-padding = 1;
+				label-spacing = 1;
+				label-minlen = 3;
+				label-alignment = "center";
+				format-prefix = "";
+				format-prefix-foreground = red;
+				format-prefix-background = transparent;
+				format-prefix-font = 5;
+				format-suffix = "";
+				format-suffix-foreground = red;
+				format-suffix-background = transparent;
+				format-suffix-font = 5;
+				format-background = red;
+
+				format = "<label>";
+				format-font = 5;
+			};
+
+			"module/brightness" = {
+				type = "internal/backlight";
+				card = "nvidia_wmi_ec_backlight";
+				
+				label = "%percentage%";
+				bar-format = "%fill%%empty%";
+				bar-fill = "";
+				bar-foreground = white; 
+				bar-empty = "";
+				bar-width = 10;
+
+				format = "<bar> <label>";
+				format-prefix = "  ";
+				format-prefix-foreground = white;
+				format-prefix-background = bg;
+				format-foreground = white;
+				format-background = bg;
+				format-padding = 1;
+			};
+
+			"module/space" = {
+				type = "custom/text";
+
+				label = "foo";
+
+				format = "<label>";
+				format-background = transparent;
+				format-foreground = transparent;
+				format-margin = 3;
+			};
+
+			"module/nixos" = {
+				type = "custom/text";
+
+				label = "  %{F${white}}Gruvbox%{F-}";
+				label-font = 2;
+				label-minlen = 2;
+				label-alignment = "center";
+
+				format = "<label>";
+				format-foreground = blue;
+				format-background = bg;
+				format-padding = 1;
+			};
+
+
 
 		};
-
+		
 		script = ''
 			#!/bin/sh
-			polybar monitor2 &
 			polybar monitor1 &
-
+			polybar monitor2 &
 		'';
 	};
 }

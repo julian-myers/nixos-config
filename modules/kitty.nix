@@ -6,11 +6,8 @@
 			name = "JetBrainsMono";
 			size = 14;
 		};
-
-		themeFile = "gruvbox_light";
 		shellIntegration.enableZshIntegration = true;
 
-		keybindings = {
-		};
+		themeFile = "GruvboxMaterialDarkSoft";
 	};
 }

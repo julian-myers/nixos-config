@@ -17,7 +17,7 @@
 			window = {
 				commands = [
 					{
-						command = "border pixel 2";
+						command = "border pixel 3";
 						criteria = {
 							class = ".*";
 						};
@@ -28,26 +28,26 @@
 				background = "#B8C0E0";
 
 				unfocused = {
-					background = "#353349";
-					border = "#353349";
-					childBorder = "#353349";
-					indicator = "#353349";
-					text = "#353349";
+					background = "#d4be98";
+					border = "#d4be98";
+					childBorder = "#d4be98";
+					indicator = "#d4be98";
+					text = "#d4be98";
 				};
 
 				focused = {
-					background = "#cdc7d2";
-					border = "#cdc7d2";
-					childBorder = "#cdc7d2";
-					indicator = "#cdc7d2";
-					text = "#cdc7d2";
+					background = "#a89984";
+					border = "#a89984";
+					childBorder = "#a89984";
+					indicator = "#a89984";
+					text = "#a89984";
 				};
 
 				focusedInactive = {
-					background = "#FFFFFF";
-					border = "#FFFFFF";
-					childBorder = "#FFFFFF";
-					indicator = "#FFFFFF";
+					background = "#a89984";
+					border = "#a89984";
+					childBorder = "#a89984";
+					indicator = "#a89984";
 					text = "#FFFFFF";
 				};
 
@@ -72,7 +72,7 @@
 			startup = [
 				{ command = "systemctl --user restart polybar"; always = true; notification = false; }
 				{ command = "exec picom -b"; always = true; notification = false; }
-				{ command = "feh --bg-scale ~/Personal/pics/wallpapers/ss.png"; always = true; notification = false; }
+				{ command = "feh --bg-scale ~/Personal/pics/wallpapers/waterfountain.png"; always = true; notification = false; }
 				{ command = "exec flameshot"; always = true; notification = false; }
 				{ command = "exec dunst"; always = true; notification = false; }
 			];

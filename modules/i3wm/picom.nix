@@ -22,7 +22,7 @@
 			};
 			unredir-if-possible = true;
 			glx-swap-method = -1;
-			corner-radius = 15;
+			corner-radius = 10;
 
 			blur-background-exclude = [ "class_g = 'Polybar'" ];
 		};
