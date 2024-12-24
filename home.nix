@@ -12,7 +12,7 @@ in
 		./modules/autorandr.nix
 		./modules/dunst.nix
 		./modules/kitty.nix
-		./modules/yazi.nix
+		./modules/yazi/yazi.nix
 	];
 
   home.username = "julian-m";
@@ -38,6 +38,7 @@ in
 	};
 
   home.packages = with pkgs;[
+		zathura
 		yazi
 		powercontrols
 		kitty-themes
