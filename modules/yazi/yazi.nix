@@ -5,7 +5,7 @@
 		enableZshIntegration = true;
 
 		flavors = {
-			gruvbox-dark = ./gruvbox-dark;
+			gruvbox-dark = ./gruvbox-dark.yazi;
 		};
 
 	};
