@@ -5,9 +5,9 @@
 	services.picom = {
 		enable = true;
 
-		activeOpacity = 0.98;
-		inactiveOpacity = 0.85;
-		menuOpacity = 0.85;
+		activeOpacity = 0.95;
+		inactiveOpacity = 0.8;
+		menuOpacity = 0.8;
 
 		fade = true;
 		fadeDelta = 5;
@@ -18,7 +18,7 @@
 		settings = {
 			blur = {
 				method = "dual_kawase";
-				strength = 10;
+				strength = 6;
 			};
 			unredir-if-possible = true;
 			glx-swap-method = -1;

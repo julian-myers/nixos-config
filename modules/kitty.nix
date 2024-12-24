@@ -8,6 +8,6 @@
 		};
 		shellIntegration.enableZshIntegration = true;
 
-		themeFile = "GruvboxMaterialDarkSoft";
+		themeFile = "GruvboxMaterialDarkMedium";
 	};
 }

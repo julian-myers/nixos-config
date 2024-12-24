@@ -6,7 +6,7 @@ pkgs.writeShellScriptBin "reboot" ''
 		exit 1
 	}
 
-	if [ $# -ne 1]; then 
+	if [ $# -ne 1 ]; then 
 		usage
 	fi
 

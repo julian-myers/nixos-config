@@ -10,10 +10,9 @@ in
 		./modules/i3wm/picom.nix
 		./modules/i3wm/rofi.nix
 		./modules/autorandr.nix
-		./modules/qutebrowser.nix
 		./modules/dunst.nix
 		./modules/kitty.nix
-		./modules/ranger/ranger.nix
+		./modules/yazi.nix
 	];
 
   home.username = "julian-m";
@@ -39,13 +38,10 @@ in
 	};
 
   home.packages = with pkgs;[
+		yazi
 		powercontrols
 		kitty-themes
-		ranger
 		cava
-		spotify-qt
-		mpd
-		mopidy
 		spotify-player
 		rofi-bluetooth
 		systemdUkify
@@ -88,7 +84,7 @@ in
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  home.sessionVariables = rec {
+  home.sessionVariables = {
 		EDITOR = "neovim";
   };
 

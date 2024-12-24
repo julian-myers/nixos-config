@@ -28,17 +28,17 @@
 				background = "#B8C0E0";
 
 				unfocused = {
-					background = "#d5a456";
-					border = "#d5a456";
-					childBorder = "#d5a456";
+					background = "#d4be98";
+					border = "#d4be98";
+					childBorder = "#d4be98";
 					indicator = "#d4be98";
 					text = "#d4be98";
 				};
 
 				focused = {
 					background = "#a89984";
-					border = "#e3884d";
-					childBorder = "#e3884d";
+					border = "#a89984";
+					childBorder = "#a89984";
 					indicator = "#a89984";
 					text = "#a89984";
 				};

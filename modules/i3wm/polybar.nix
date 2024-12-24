@@ -335,9 +335,10 @@ in
 			"module/power" = {
 				type = "custom/script";
 
-				double-click-right = "~/scripts/reboot.sh reboot";
-				double-click-left = "~/scripts/reboot.sh sleep";
-				double-click-middle = "~/scripts/reboot.sh shutdown";
+				# reboot is a bash script I made. I acknowledge the poor choose in naming.
+				double-click-right = "reboot --reboot";
+				double-click-left = "reboot --sleep";
+				double-click-middle = "reboot --shutdown";
 
 				exec = "echo ";
 				
