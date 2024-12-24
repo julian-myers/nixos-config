@@ -17,4 +17,8 @@
 		source = ./colorschemes/gruvbox.py;
 		executable = true;
 	};
+	home.file.".config/ranger/colorschemes/rocks.py" = {
+		source = ./colorschemes/rocks.py;
+		executable = true;
+	};
 }

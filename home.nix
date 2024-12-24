@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  powercontrols = import ./scripts/powercontrols.nix { inherit pkgs; };
+in 
 {
 	imports = [
 		./modules/zsh.nix
@@ -37,10 +39,14 @@
 	};
 
   home.packages = with pkgs;[
+		powercontrols
 		kitty-themes
 		ranger
+		cava
+		spotify-qt
 		mpd
 		mopidy
+		spotify-player
 		rofi-bluetooth
 		systemdUkify
 		libnotify
