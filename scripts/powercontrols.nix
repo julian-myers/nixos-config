@@ -1,6 +1,6 @@
 { pkgs }:
 
-pkgs.writeShellScriptBin "reboot" ''
+pkgs.writeShellScriptBin "poweroptions" ''
 	usage() {
 		echo "Usage: $0 [--reboot | --shutdown | --sleep]"
 		exit 1

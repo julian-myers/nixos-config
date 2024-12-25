@@ -327,20 +327,18 @@ in
 			};
 
 			"module/spotify" = {
-				type = "custom/script";
+				type = "custom/text";
 				interval = 1;
 				exec = "~/Code/spotify-status.py";
 			};
 
 			"module/power" = {
-				type = "custom/script";
+				type = "custom/text";
 
 				# reboot is a bash script I made. I acknowledge the poor choose in naming.
-				double-click-right = "reboot --reboot";
-				double-click-left = "reboot --sleep";
-				double-click-middle = "reboot --shutdown";
-
-				exec = "echo ";
+				double-click-right = "reboot --reboot &";
+				double-click-left = "reboot --sleep &";
+				double-click-middle = "reboot --shutdown &";
 				
 				label = "";
 				label-font = 1;

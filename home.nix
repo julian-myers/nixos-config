@@ -38,6 +38,8 @@ in
 	};
 
   home.packages = with pkgs;[
+		ventoy
+		ffmpeg
 		zathura
 		yazi
 		powercontrols
@@ -86,7 +88,7 @@ in
   ];
 
   home.sessionVariables = {
-		EDITOR = "neovim";
+		EDITOR = "nvim";
   };
 
   programs.home-manager.enable = true;

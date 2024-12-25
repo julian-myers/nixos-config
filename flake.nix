@@ -4,13 +4,10 @@
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-24.11";
 		home-manager.url = "github:nix-community/home-manager/release-24.11";
-		yazi-flavors = {
-			url = "github:bennyyip/gruvbox-dark.yazi";
-		};
 	};
 
 
-	outputs = { self, nixpkgs, home-manager, yazi-flavors, ... }: 
+	outputs = { self, nixpkgs, home-manager, ... }: 
 		let
 		  lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -39,11 +36,7 @@
 					./modules/qutebrowser.nix
 					./modules/dunst.nix
 					./modules/kitty.nix
-					{
-						home.packages = [
-							(pkgs.callPackage yazi-flavors {})
-						];
-					}
+					./modules/yazi/yazi.nix
 				];
 
 			};

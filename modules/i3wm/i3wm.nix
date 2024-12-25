@@ -72,7 +72,7 @@
 			startup = [
 				{ command = "systemctl --user restart polybar"; always = true; notification = false; }
 				{ command = "exec picom -b"; always = true; notification = false; }
-				{ command = "feh --bg-scale ~/Personal/pics/wallpapers/waterfountain.png"; always = true; notification = false; }
+				{ command = "feh --bg-scale ~/Personal/pics/wallpapers/gruvbox/city.png"; always = true; notification = false; }
 				{ command = "exec flameshot"; always = true; notification = false; }
 				{ command = "exec dunst"; always = true; notification = false; }
 			];
