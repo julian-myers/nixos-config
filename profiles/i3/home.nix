@@ -13,11 +13,12 @@ in
 		../../modules/dunst.nix
 		../../modules/kitty.nix
 		../../modules/yazi/yazi.nix
+		../../modules/packages/i3_packages.nix
+		../../modules/packages/packages_all.nix
 	];
 
   home.username = "julian-m";
   home.homeDirectory = "/home/julian-m";
-
   home.stateVersion = "24.11";
 
 	nixpkgs.config = {
@@ -36,62 +37,6 @@ in
 			init.defaultBranch = "main";
 		};
 	};
-
-  home.packages = with pkgs;[
-		lua-language-server
-		jdk
-		nix-output-monitor
-		nvd
-		gnumake
-		openssh
-		snowmachine
-		ffmpeg
-		zathura
-		yazi
-		powercontrols
-		kitty-themes
-		cava
-		spotify-player
-		rofi-bluetooth
-		systemdUkify
-		libnotify
-		qutebrowser
-		xcolor
-		obsidian
-		ripgrep
-		xclip
-		flameshot
-		texliveFull
-		xorg.xev
-		fortune
-		findutils
-		cmatrix
-		unzip
-		btop
-		conky
-		papirus-icon-theme
-		autorandr
-		brightnessctl
-		pciutils
-		discord
-		spotify
-		fzf
-		screenkey
-		read-edid
-		cargo
-		tree-sitter
-		i3
-		feh
-		polybar
-		wget
-		rofi
-		curl
-		neofetch
-		tree
-		picom
-		font-awesome
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
 
   home.sessionVariables = {
 		EDITOR = "nvim";

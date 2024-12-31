@@ -1,0 +1,52 @@
+{ config, pkgs, ... }:
+{
+	home.packages = with pkgs;[
+		lua-language-server
+		jdk
+		nix-output-monitor
+		nvd
+		gnumake
+		openssh
+		snowmachine
+		ffmpeg
+		zathura
+		yazi
+		powercontrols
+		kitty-themes
+		cava
+		rofi-bluetooth
+		systemdUkify
+		libnotify
+		xcolor
+		obsidian
+		ripgrep
+		xclip
+		flameshot
+		texliveFull
+		xorg.xev
+		fortune
+		findutils
+		cmatrix
+		unzip
+		btop
+		conky
+		papirus-icon-theme
+		autorandr
+		brightnessctl
+		pciutils
+		discord
+		spotify
+		fzf
+		screenkey
+		read-edid
+		cargo
+		tree-sitter
+		wget
+		rofi
+		curl
+		neofetch
+		tree
+		font-awesome
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
+}
