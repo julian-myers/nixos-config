@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   transparent = "#00000000";
-	bg = "#3c3836";
+	bg = "#222526";
 	#bg = "#32302f";
 	fg = "#d4be98";
 	black = "#665c54";
@@ -28,9 +28,6 @@ in
 				# monitor settings
 				monitor = "HDMI-1";
 				monitor-fallback = "eDP-1";
-
-
-				offset-y = "5pt";
 
 				# bar settings
 				width = "100%";
@@ -62,7 +59,6 @@ in
 				];
 
 				modules-right = [
-
 					"marginleft"
 					"alsa"
 					"marginright"
@@ -72,7 +68,7 @@ in
 					"margincenter"
 					"network"
 					"margincenter"
-					"nixos"
+					"tray"
 					"marginright"
 					"space"
 					"power"
@@ -173,6 +169,11 @@ in
 			# ----- module configs -------
 
 
+			"module/tray" = {
+				type = "internal/tray";
+				tray-spacing = 2;
+				tray-background = bg;
+			};
 			"module/workspaces" = {
 				type = "internal/xworkspaces";
 

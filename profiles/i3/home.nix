@@ -1,18 +1,18 @@
 { config, pkgs, ... }:
 let
-  powercontrols = import ./scripts/powercontrols.nix { inherit pkgs; };
+  powercontrols = import ../../scripts/powercontrols.nix { inherit pkgs; };
 in 
 {
 	imports = [
-		./modules/zsh.nix
-		./modules/i3wm/i3wm.nix
-		./modules/i3wm/polybar.nix
-		./modules/i3wm/picom.nix
-		./modules/i3wm/rofi.nix
-		./modules/autorandr.nix
-		./modules/dunst.nix
-		./modules/kitty.nix
-		./modules/yazi/yazi.nix
+		../../modules/zsh.nix
+		../../modules/i3wm/i3wm.nix
+		../../modules/i3wm/polybar.nix
+		../../modules/i3wm/picom.nix
+		../../modules/i3wm/rofi.nix
+		../../modules/autorandr.nix
+		../../modules/dunst.nix
+		../../modules/kitty.nix
+		../../modules/yazi/yazi.nix
 	];
 
   home.username = "julian-m";

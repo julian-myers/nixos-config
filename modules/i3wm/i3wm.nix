@@ -9,6 +9,7 @@
 			gaps = {
 				outer = 15;
 				inner = 15;
+				top = 12;
 			};
 
 			terminal = "kitty";
@@ -17,7 +18,7 @@
 			window = {
 				commands = [
 					{
-						command = "border pixel 3";
+						command = "border pixel 5";
 						criteria = {
 							class = ".*";
 						};
@@ -89,23 +90,19 @@
 
 				# restart i3 in place
 				"Mod1+Shift+r" = "restart";
-
 				# open terminal
 				"Mod1+Return" = "exec kitty";
-
 				# screen shot
 				"Mod4+Print" = "exec flameshot gui";
-
 				# bluetooth menu
 				"Mod4+b" = "exec rofi-bluetooth";
-
 				# close window 
 				"Mod1+BackSpace" = "kill";
 
 				# switch layouts
-				"Mod1+s" = "layout stacking";
-				"Mod1+w" = "layout tabbed";
-				"Mod1+e" = "layout toggle split";
+				"Mod1+s" = "layout stacking;exec notify-send 'Layout: stacked'";
+				"Mod1+w" = "layout tabbed;exec notify-send 'Layout: tabbed'";
+				"Mod1+e" = "layout toggle split;exec notify-send 'Layout: tiled'";
 
 				# move window
 				"Mod1+Shift+h" = "move left";

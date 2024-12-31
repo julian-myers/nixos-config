@@ -160,6 +160,7 @@
 		dbus
     vim
     libstdcxx5
+		ncurses
     neovim
     zsh
 		alsa-utils

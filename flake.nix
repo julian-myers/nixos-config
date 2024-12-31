@@ -12,6 +12,8 @@
 		  lib = nixpkgs.lib;
 			system = "x86_64-linux";
 			pkgs = nixpkgs.legacyPackages.${system};
+
+			profile = "i3";
 		in {
 		nixosConfigurations = {
 			nixos = lib.nixosSystem {
@@ -26,22 +28,11 @@
 			julian-m = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
 				modules = [
-					./home.nix
-					./modules/zsh.nix
-					./modules/i3wm/i3wm.nix
-					./modules/i3wm/polybar.nix
-					./modules/i3wm/picom.nix
-					./modules/i3wm/rofi.nix
-					./modules/autorandr.nix
-					./modules/qutebrowser.nix
-					./modules/dunst.nix
-					./modules/kitty.nix
-					./modules/yazi/yazi.nix
+					(./. + "/profiles" + ("/" + profile) + "/home.nix")
 				];
-
 			};
-
 		};
+
 	};
 
 }

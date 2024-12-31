@@ -23,8 +23,8 @@
 			mth430 = "cd ~/School/spring2025/mth430";
 			mth452 = "cd ~/School/spring2025/mth452";
 			cs120 = "cd ~/School/spring2025/cs120";
-
 			nixconf = "cd ~/.dotfiles && nvim";
+			analysis-book = "cd ~/School/spring2025/mth428/ && open primer-real-analysis.pdf";
 		};
 
 		zsh-abbr = {
@@ -34,6 +34,19 @@
 				nrs = "nixos-rebuild switch --flake .";
 			};
 		};
+
+		plugins = [
+			{
+				name = "zsh-nix-shell";
+				file = "nix-shell.plugin.zsh";
+				src = pkgs.fetchFromGitHub {
+				  owner = "chisui";
+				  repo = "zsh-nix-shell";
+				  rev = "v0.8.0";
+				  sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+				};
+			}
+		];
 
 	};
 
