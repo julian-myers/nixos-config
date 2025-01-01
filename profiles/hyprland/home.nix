@@ -8,9 +8,11 @@
 		../../modules/kitty.nix 
 		../../modules/zsh.nix 
 		../../modules/yazi/yazi.nix
-		../../modules/autorandr.nix
+		../../modules/i3wm/rofi.nix
 
 		../../modules/hyprland/hyprland.nix
+		../../modules/hyprland/waybar.nix
+		../../modules/hyprland/hyprpaper.nix
 	];
 
 	home.sessionVariables = {

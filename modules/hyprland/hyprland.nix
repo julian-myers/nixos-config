@@ -11,6 +11,7 @@
 				# programs
 				"ALT, T, exec, kitty"
 				"ALT, F, exec, firefox"
+				"ALT, D, exec, rofi -show drun"
 
 				# windows
 				"ALT, backspace, killactive,"
@@ -47,11 +48,23 @@
 				"ALT_SHIFT, 9, movetoworkspace, 9"
 			];
 
+			# mouse to resize windows and stuff
 			bindm = [
 				"ALT, mouse:272, movewindow"
 				"ALT, mouse:273, resizewindow"
 			];
 
+			# extra keyboard button controls for volume and such.
+			bindel = [
+				", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+				", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+			];
 		};
+
+		extraConfig = ''
+exec-once = waybar
+exec-once = hyprpaper
+source = ~/.config/hypr/monitors.conf
+		'';
 	};
 }
