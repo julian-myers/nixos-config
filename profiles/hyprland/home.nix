@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
 	imports = [
 		../../modules/packages/packages_all.nix
@@ -8,7 +8,9 @@
 		../../modules/kitty.nix 
 		../../modules/zsh.nix 
 		../../modules/yazi/yazi.nix
+		../../modules/autorandr.nix
 
+		../../modules/hyprland/walker.nix
 		../../modules/hyprland/hyprland.nix
 	];
 
@@ -17,7 +19,7 @@
 	};
 
 	home.username  = "julian-m";
-	home.homeDirectory = "home/julian-m";
+	home.homeDirectory = "/home/julian-m";
 	home.stateVersion = "24.11";
 	programs.home-manager.enable = true;
 	programs.autorandr.enable = true;

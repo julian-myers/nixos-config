@@ -11,7 +11,6 @@
 		ffmpeg
 		zathura
 		yazi
-		powercontrols
 		kitty-themes
 		cava
 		rofi-bluetooth

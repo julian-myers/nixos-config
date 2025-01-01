@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-let
-  powercontrols = import ../../scripts/powercontrols.nix { inherit pkgs; };
-in 
 {
 	imports = [
 		../../modules/zsh.nix
