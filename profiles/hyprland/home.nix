@@ -10,7 +10,6 @@
 		../../modules/yazi/yazi.nix
 		../../modules/autorandr.nix
 
-		../../modules/hyprland/walker.nix
 		../../modules/hyprland/hyprland.nix
 	];
 

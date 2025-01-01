@@ -53,11 +53,5 @@
 			];
 
 		};
-
-		systemd = {
-			enable = true;
-			enableXdgAutostart = true;
-		};
-
 	};
 }
