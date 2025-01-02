@@ -1,19 +1,18 @@
 { config, pkgs, ... }:
 let
   transparent = "#00000000";
-	bg = "#222526";
-	#bg = "#32302f";
-	fg = "#d4be98";
-	black = "#665c54";
-	black-alt = "#928374";
-	red = "#ea6962";
-	green = "#a9b665";
-	yellow = "#e78a4e";
-	yellow-alt = "#d8a657";
-	blue = "#7daea3";
-	magenta = "#d3869b";
-	cyan = "#89b482";
-	white = "#d4be98";
+	bg = "#24273A";
+	fg = "#CAD3F5";
+	black = "#494d64";
+	black-alt = "#5b6078";
+	red = "#ED8796";
+	green = "#A6da95";
+	yellow = "#EED49F";
+	blue = "#8AADF4";
+	magenta = "#F5BDE6";
+	cyan = "#8BD5CA";
+	white = "#B8C0E0";
+	white-alt = "#A5ADCB";
 in 
 {
 	programs.kitty = {
@@ -24,7 +23,7 @@ in
 		};
 
 		shellIntegration.enableZshIntegration = true;
-		themeFile = "GruvboxMaterialDarkHard";
+		themeFile = "Dracula";
 		keybindings = {
 			"super+1" = "goto_tab 1";
 			"super+2" = "goto_tab 2";
@@ -35,10 +34,13 @@ in
 		settings = {
 			tab_bar_style = "powerline";
 			tab_bar_edge = "top";
-			active_tab_foreground = fg;
+			active_tab_foreground = "#181926";
 			inactive_tab_foreground = fg;
-			active_tab_background = black;
-			inactive_tab_background = black-alt;
+			active_tab_background = fg;
+			inactive_tab_background = "#1E2030";
+			tab_bar_background = "#181926";
+
+			background = "#181926";
 		};
 	};
 

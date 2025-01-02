@@ -15,26 +15,26 @@
 			@theme "/dev/null"
 
 			* {
-				bg: #3c3836;
-				bg-alt: #32302f;
+				bg: #1A1B29;
+				bg-alt: #282a36;
 
-				fg: #d4be98;
+				fg: #f8f8f2;
 				fg-alt: #665c54;
 
-				black1: #665c54;
+				black1: #5B6078;
 				black2: #928374;
 
-				red1: #EA6962;
+				red1: #ff5555;
 
-				green1: #a9b665;
+				green1: #50fa7b;
 
-				yellow1: #e78a4e;
+				yellow1: #f1fa8c;
 
-				blue1: #7daea3;
+				blue1: #bd93f9;
 
-				magenta1: #d3869b; 
+				magenta1: #ff79c6; 
 
-				cyan1: #89b482;
+				cyan1: #8be9fd;
 
 				white1: #d4be98;
 				white2: #d4be98;
@@ -53,12 +53,12 @@
 
 			element {
 				padding: 12;
-				text-color: @white1;
+				text-color: @fg;
 			}
 
 			element selected {
 				text-color: @yellow1;
-				background-color: @black2;
+				background-color: @black1;
 			}
 
 			element-text {
@@ -68,13 +68,13 @@
 			}
 
 			element-icon {
-				size: 30;
+				size: 40;
 			}
 
 			entry {
-				background-color: @white1;
+				background-color: @bg;
 				padding: 12;
-			text-color: @black2;
+				text-color: @blue1;
 			}
 
 			inputbar {
@@ -82,23 +82,23 @@
 			}
 
 			listview {
-				background-color: @bg;
+				background-color: @bg-alt;
 				columns: 1;
 				lines: 8;
 			}
 
 			mainbox {
-				background-color: @bg;
+				background-color: @bg-alt;
 				children: [inputbar, listview];
 				border: 3px solid;
-				border-color: @white1;
+				border-color: @blue1;
 			}
 
 			prompt {
-				background-color: @white1;
+				background-color: @bg;
 				enable: true;
 				padding: 12 0 0 12;
-				text-color: @black1;
+				text-color: @magenta1;
 			}
 		'';
 	};

@@ -2,6 +2,7 @@
 {
 	home.packages = with pkgs;[
 		lua-language-server
+		gimp
 		jdk
 		nix-output-monitor
 		nvd
