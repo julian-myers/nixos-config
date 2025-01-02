@@ -70,6 +70,10 @@ in
 
 				"ALT, S, togglespecialworkspace, magic"
 				"ALT_SHIFT, S, movetoworkspace, special:magic"
+
+				"SUPER, M, exec, kanshi"
+				"SUPER, H, exec, hyprctl reload"
+				"SUPER, W, exec, pkill waybar && waybar &"
 			];
 
 			# workspace rules:
@@ -107,6 +111,7 @@ in
 			exec-once = [
 				"waybar"
 				"hyprpaper"
+				"kanshi"
 			];
 
 			# ----- Decorations --------
@@ -175,8 +180,8 @@ in
 
 		};
 
-		extraConfig = ''
-source = ~/.config/hypr/monitors.conf
-		'';
+#		extraConfig = ''
+#source = ~/.config/hypr/monitors.conf
+#		'';
 	};
 }

@@ -4,5 +4,6 @@
 		hyprpicker
 		waybar
 		nwg-displays
+		kanshi
 	];
 }

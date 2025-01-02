@@ -21,7 +21,7 @@ in
 				layer = "top";
 				position = "top";
 				height= 30;
-				output = [ "HDMI-A-1" "DP-1" ];
+				output = [ "HDMI-A-1" "DP-1" "eDP-1" ];
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "clock" ];
 				modules-right = [ "wireplumber" "network" "battery" ];
@@ -44,6 +44,7 @@ in
 					persistent-workspaces = {
 						"HDMI-A-1" = [ "1" "2" "3" "4" "5"];
 						"DP-1" = [ "1" "2" "3" "4" "5"];
+						"eDP-1" = [ "1" "2" "3" "4" "5"];
 					};
 				};
 
