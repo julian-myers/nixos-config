@@ -24,7 +24,7 @@ in
 				output = [ "HDMI-A-1" "DP-1" "eDP-1" ];
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "clock" ];
-				modules-right = [ "wireplumber" "network" "battery" ];
+				modules-right = [ "tray" "wireplumber" "network" "battery" ];
 
 				"hyprland/workspaces" = {
 					format = "{icon}";
@@ -83,6 +83,12 @@ in
 					format-muted = "  "; 
 					format-icons = [ "  " "  " ];
 				};
+
+				"tray" = {
+					icon-size = 12;
+					spacing = 15;
+					show-passive-items = true;
+				};
 			};	
 		};	
 
@@ -109,12 +115,10 @@ in
 			}
 
 			#window {
-				color: ${purple};
-				background-color: ${darkbg};
-				border: 1px solid ${black};
-				border-radius: 10;
+				color: ${orange};
 				padding-left: 10px;
 				padding-right: 10px;
+				margin-left: 15px;
 			}
 
 			#workspaces button {
@@ -135,7 +139,7 @@ in
 			#clock {
 				background: ${darkbg};
 				padding: 0.1em 0.4em;
-				color: ${pink};
+				color: ${black};
 				margin: 0.0em 0.8em;
 				border: 1px solid ${black};
 				border-radius: 10;
@@ -178,7 +182,16 @@ in
 			#wireplumber {
 				background: ${darkbg};
 				padding: 0.1em 0.4em;
-				color: ${orange};
+				color: ${purple};
+				margin: 0.0em 0.8em;
+				border: 1px solid ${black};
+				border-radius: 10;
+			}
+
+			#tray {
+				background: ${darkbg};
+				padding: 0.1em 0.4em;
+				color: ${fg};
 				margin: 0.0em 0.8em;
 				border: 1px solid ${black};
 				border-radius: 10;

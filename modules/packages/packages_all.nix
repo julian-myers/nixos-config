@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
 	home.packages = with pkgs;[
+		spotify-cli-linux
+		spotify-tray
 		lua-language-server
 		gimp
 		jdk

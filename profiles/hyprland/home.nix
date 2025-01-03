@@ -15,6 +15,8 @@
 		../../modules/hyprland/hyprpaper.nix
 	];
 
+	security.pam.services.hyprlock = {};
+
 	home.sessionVariables = {
 		EDITOR = "nvim";
 	};
@@ -23,7 +25,6 @@
 	home.homeDirectory = "/home/julian-m";
 	home.stateVersion = "24.11";
 	programs.home-manager.enable = true;
-	programs.autorandr.enable = true;
 
 	programs.git = {
 		enable = true;

@@ -9,11 +9,11 @@ let
   purple = "bd93f9ff";
   red = "ff5555ff";
   yellow = "f1fa8cff";
+	black = "5b6078ff";
 in 
 {
 	wayland.windowManager.hyprland = {
 		enable = true;
-
 		settings = {
 			"$terminal" = "kitty";
 			"$browser" = "firefox";
@@ -25,10 +25,9 @@ in
 				"ALT, F, exec, firefox"
 				"ALT, D, exec, rofi -show drun"
 				"ALT, space, togglefloating"
-
-				# windows
 				"ALT, backspace, killactive,"
 
+				# windows
 				"ALT, h, movefocus, l"
 				"ALT, l, movefocus, r"
 				"ALT, k, movefocus, u"
@@ -38,8 +37,6 @@ in
 				"ALT_SHIFT, l, movewindow, r"
 				"ALT_SHIFT, k, movewindow, u"
 				"ALT_SHIFT, j, movewindow, d"
-
-
 
 				# workspaces
 				"ALT, 1, workspace, 1"
@@ -71,9 +68,11 @@ in
 				"ALT, S, togglespecialworkspace, magic"
 				"ALT_SHIFT, S, movetoworkspace, special:magic"
 
-				"SUPER, M, exec, kanshi"
+				"SUPER, D, exec, kanshictl switch \"docked\""
+				"SUPER, U, exec, kanshictl switch \"undocked\""
 				"SUPER, H, exec, hyprctl reload"
 				"SUPER, W, exec, pkill waybar && waybar &"
+				"SUPER, B, exec, systemctl --user restart hyperpaper.service"
 			];
 
 			# workspace rules:
@@ -112,6 +111,7 @@ in
 				"waybar"
 				"hyprpaper"
 				"kanshi"
+				"flameshot"
 			];
 
 			# ----- Decorations --------
@@ -123,31 +123,26 @@ in
 					render_power = 3;
 					color = "rgba(181926aa)";
 				};
-
 				blur = {
 					enabled = true;
 					size = 8;
 					passes = 3;
 				};
-
 				active_opacity = 0.95;
 				inactive_opacity = 0.85;
-
 			};
 
 		 # ------ General -------
 			general = {
 				gaps_in = 5;
 				gaps_out = 15;
-
-				border_size = 2;
-
-				"col.active_border" = "rgba(${cyan}) rgba(${pink}) 45deg";
-				"col.inactive_border" = "rgba(${purple})";
-				
+				border_size = 1;
+				"col.active_border" = "rgba(${green}) rgba(${purple}) 45deg";
+				"col.inactive_border" = "rgba(${black})";
 				layout = "dwindle";
 		 	};
 
+			# ----- Animations ------
 			animations = {
 				enabled = "yes";
 				bezier = [
@@ -177,11 +172,9 @@ in
           "workspacesOut, 1, 1.94, almostLinear, slide"
 				];
 			};
-
+			xwayland = {
+				force_zero_scaling = true;
+			};
 		};
-
-#		extraConfig = ''
-#source = ~/.config/hypr/monitors.conf
-#		'';
 	};
 }
