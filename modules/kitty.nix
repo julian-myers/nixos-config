@@ -40,7 +40,7 @@ in
 			inactive_tab_background = "#1E2030";
 			tab_bar_background = "#181926";
 
-			background = "#181926";
+			background = "#1a1b29";
 		};
 	};
 

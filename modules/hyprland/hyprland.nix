@@ -73,6 +73,9 @@ in
 				"SUPER, H, exec, hyprctl reload"
 				"SUPER, W, exec, pkill waybar && waybar &"
 				"SUPER, B, exec, systemctl --user restart hyperpaper.service"
+
+				", XF86HomePage, exec, hyprlock &"
+				", XF86Favorites, exec, hyprlock &"
 			];
 
 			# workspace rules:
@@ -125,8 +128,9 @@ in
 				};
 				blur = {
 					enabled = true;
-					size = 8;
-					passes = 3;
+					size = 10;
+					passes = 4;
+					ignore_opacity = false;
 				};
 				active_opacity = 0.95;
 				inactive_opacity = 0.85;
@@ -136,8 +140,8 @@ in
 			general = {
 				gaps_in = 5;
 				gaps_out = 15;
-				border_size = 1;
-				"col.active_border" = "rgba(${green}) rgba(${purple}) 45deg";
+				border_size = 2;
+				"col.active_border" = "rgba(${green}) rgba(${green}) 45deg";
 				"col.inactive_border" = "rgba(${black})";
 				layout = "dwindle";
 		 	};
@@ -158,7 +162,7 @@ in
           "border, 1, 5.39, easeOutQuint"
           "windows, 1, 4.79, easeOutQuint"
           "windowsIn, 1, 4.1, easeOutQuint, popin 87%"
-          "windowsOut, 1, 1.49, linear, popin 87%"
+          "windowsOut, 1, 1.49, easeOutQuint, popin 87%"
           "fadeIn, 1, 1.73, almostLinear"
           "fadeOut, 1, 1.46, almostLinear"
           "fade, 1, 3.03, quick"
@@ -167,9 +171,9 @@ in
           "layersOut, 1, 1.5, linear, fade"
           "fadeLayersIn, 1, 1.79, almostLinear"
           "fadeLayersOut, 1, 1.39, almostLinear"
-          "workspaces, 1, 1.94, almostLinear, slide"
-          "workspacesIn, 1, 1.21, almostLinear, slide"
-          "workspacesOut, 1, 1.94, almostLinear, slide"
+          "workspaces, 1, 1.94, almostLinear, slidefade 20%"
+          "workspacesIn, 1, 1.21, almostLinear, slidefade 20%"
+          "workspacesOut, 1, 1.94, almostLinear, slidefade 20%"
 				];
 			};
 			xwayland = {

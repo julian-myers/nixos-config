@@ -13,6 +13,7 @@
 	security.sudo.extraConfig = ''
 		yourusername ALL=(ALL) NOPASSWD: /sbin/reboot, /sbin/poweroff, /bin/systemctl suspend
 	'';
+	security.pam.services.hyprlock = {};
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
