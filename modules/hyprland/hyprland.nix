@@ -21,11 +21,16 @@ in
 			# ---- KeyBinds -----
 			bind = [
 				# programs
-				"ALT, T, exec, kitty"
+				"ALT, Return, exec, kitty"
 				"ALT, F, exec, firefox"
 				"ALT, D, exec, rofi -show drun"
+				"ALT, R, exec, rofi -show run"
+				"ALT_SHIFT, B, exec, rofi-bluetooth"
 				"ALT, space, togglefloating"
+				"ALT, P, pseudo"
+				"ALT, O, togglesplit"
 				"ALT, backspace, killactive,"
+				"SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
 				# windows
 				"ALT, h, movefocus, l"
@@ -68,6 +73,7 @@ in
 				"ALT, S, togglespecialworkspace, magic"
 				"ALT_SHIFT, S, movetoworkspace, special:magic"
 
+
 				"SUPER, D, exec, kanshictl switch \"docked\""
 				"SUPER, U, exec, kanshictl switch \"undocked\""
 				"SUPER, H, exec, hyprctl reload"
@@ -107,31 +113,47 @@ in
 			windowrule = [
 				"opaque, title:(Firefox)(.*)"
 				"noblur, title:(Firefox)(.*)"
+				"opaque, title:(Minecraft 1.21.4)"
+				"noblur, title:(Minecraft 1.21.4)"
 			];
 
 			# startup apps
 			exec-once = [
 				"waybar"
 				"hyprpaper"
+				"hypridle"
 				"kanshi"
-				"flameshot"
+				"wl-paste --type text --watch cliphist store"
+				"wl-paste --type image --watch cliphist store"
 			];
 
 			# ----- Decorations --------
 			decoration = {
 				rounding = 10;
 				shadow = {
-					enabled = true;
+					enabled = false;
 					range = 4;
 					render_power = 3;
 					color = "rgba(181926aa)";
 				};
+				
 				blur = {
 					enabled = true;
-					size = 10;
-					passes = 4;
-					ignore_opacity = false;
+					size = 9;
+					passes = 3;
+					ignore_opacity = true;
+					new_optimizations = true;
+					xray = false;
+					noise = 0.0117;
+					contrast = 0.8916;
+					brightness = 0.8172;
+					vibrancy = 0.1696;
+					vibrancy_darkness = 0.0;
+					special = false;
+					popups = false;
+					popups_ignorealpha = 0.2;
 				};
+
 				active_opacity = 0.95;
 				inactive_opacity = 0.85;
 			};
@@ -141,8 +163,8 @@ in
 				gaps_in = 5;
 				gaps_out = 15;
 				border_size = 2;
-				"col.active_border" = "rgba(${green}) rgba(${green}) 45deg";
-				"col.inactive_border" = "rgba(${black})";
+				"col.active_border" = "rgba(${fg}) rgba(${purple}) 45deg";
+				"col.inactive_border" = "rgba(${fg})";
 				layout = "dwindle";
 		 	};
 
@@ -171,14 +193,34 @@ in
           "layersOut, 1, 1.5, linear, fade"
           "fadeLayersIn, 1, 1.79, almostLinear"
           "fadeLayersOut, 1, 1.39, almostLinear"
-          "workspaces, 1, 1.94, almostLinear, slidefade 20%"
-          "workspacesIn, 1, 1.21, almostLinear, slidefade 20%"
-          "workspacesOut, 1, 1.94, almostLinear, slidefade 20%"
+          "workspaces, 1, 1.94, almostLinear, slide"
+          "workspacesIn, 1, 1.21, almostLinear, slide"
+          "workspacesOut, 1, 1.94, almostLinear, slide"
 				];
 			};
+
 			xwayland = {
 				force_zero_scaling = true;
 			};
+
+			opengl = {
+				nvidia_anti_flicker = true;
+				force_introspection = 0;
+			};
+
+			input = {
+				kb_options = "caps:swapescape";
+			};
+
+			env = [
+				"LIBVA_DRIVER_NAME,nvidia"
+				"__GLX_VENDOR_LIBRARY_NAME,nvidia"
+			];
+			
+			render = {
+				explicit_sync = 0;
+			};
+
 		};
 	};
 }

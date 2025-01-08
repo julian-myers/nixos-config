@@ -26,24 +26,23 @@ in
 
 			background = [
 				{
-					path = "~/Personal/pics/wallpapers/drac/eyes_.jpg";
-					blur_passes = 4;
-					blur_size = 8;
-					brightness = 0.4;
+					path = "~/Personal/pics/wallpapers/gimpmade/shapeurworld.png";
+					vibrancy = 0.2;
+					vibrancy_darkness = 0.2;
 				}
 			];
 
 			input-field = [
 				{
-					size = "150, 40";
+					size = "250, 40";
 					position = "0, -80";
 					monitor = "";
 					dots_center = true;
 					fade_on_empty = false;
 					font_family = "JetBrainsMono Nerd Font";
-					font_color = "rgb(91, 96, 120)"; # black
+					font_color = "rgb(248, 248, 242)"; # fg
 					inner_color = "rgb(40, 42, 54)"; # bg
-					outer_color ="rgb(91, 96, 120)";
+					outer_color ="rgb(248, 248, 242)";
 					outline_thickness = 1;
 					placeholder_text = "<i>Password:</i>";
 					shadow_passes = 2;
@@ -54,8 +53,8 @@ in
 				{
 					monitor = "";
 					text = "cmd[update:1000] echo \"$(date +\"%-I:%M\")\"";
-					color = "rgb(91, 96, 120)"; # black
-					font_size = 64;
+					color = "rgb(248, 248, 242)"; # fg 
+					font_size = 96;
 					font_family = "JetBrainsMono Nerd Font";
 					position = "0, 200";
 					halign = "center";
