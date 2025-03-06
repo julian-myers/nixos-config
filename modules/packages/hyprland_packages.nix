@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
 {
 	home.packages = with pkgs; [
-		watershot
+		drawing
+		networkmanagerapplet
+		grim
 		hyprpicker
 		waybar
-		nwg-displays
 		kanshi
 	];
 }

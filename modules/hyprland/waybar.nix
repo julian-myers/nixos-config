@@ -2,7 +2,7 @@
 let
 	darkbg = "#1A1B29";
   bg = "#282a36";
-  fg = "#f8f8f2";
+  fg = "#5B6078"; # "#f8f8f2";
   cyan = "#8be9fd";
   green = "#50fa7b";
   orange = "#ffb86c";
@@ -11,21 +11,44 @@ let
   red = "#ff5555";
   yellow = "#f1fa8c";
 	black = "#5B6078";
+
+	base = "#191724";
+	surface = "#1f1d2e";
+	overlay = "#26233a";
+	muted = "#6e6a86";
+	subtle = "#908caa";
+	text = "#e0def4";
+	love = "#eb6f92";
+	gold = "#f6c177";
+	rose = "#ebbcba";
+	pine = "#31748f";
+	foam = "#9ccfd8";
+	iris = "#c4a7e7";
+	hlow = "#2a283e";
+	hmed = "#44415a";
+	hhigh = "#56526e";
 in 
 {
+	home.packages = with pkgs; [
+		jsoncpp
+		glib
+		wayland
+		wlroots
+	];
+
 	programs.waybar = {
 		enable = true;
 		package = pkgs.waybar;
 		settings = {
 			mainBar = {
-				layer = "top";
-				position = "top";
-				height= 30;
-				output = [ "HDMI-A-1" "DP-1" "eDP-1" ];
+				position = "bottom";
+				margin-left = 15;
+				margin-right = 15;
 				modules-left = [ "custom/nix" "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "clock" ];
-				modules-right = [  "wireplumber" "cava" "network" "bluetooth" "battery" "tray" "custom/power" ];
+				modules-right = [  "wireplumber" "cava" "network" "bluetooth" "battery" "idle_inhibitor" "tray" "custom/power" ];
 
+				outputs = [ "DP-1" "eDP-1" ];
 				"hyprland/workspaces" = {
 					format = "{icon}";
 					format-icons = {
@@ -40,9 +63,8 @@ in
 							"9"="󰲱 ";
 							"default"= " ";
 					};
-					all-outputs = true;
 					persistent-workspaces = {
-						"HDMI-A-1" = [ "1" "2" "3" "4" "5"];
+						"DP-2" = [ "1" "2" "3" "4" "5"];
 						"DP-1" = [ "1" "2" "3" "4" "5"];
 						"eDP-1" = [ "1" "2" "3" "4" "5"];
 					};
@@ -85,15 +107,20 @@ in
 						"critical" = 10;
 						"good" = 100;
 					};
-					format = "  {icon} {capacity}  ";
+					format = "{icon} {capacity}%";
 					format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+					format-charging = "󰂅 {capacity}%";
 				};
 
 				"network" = {
 					format = "{ifname}";
-					format-wifi = " {icon} {essid} {signalStrength}% ";
-					format-icons = [ " " ];
+					format-wifi = " {icon}";
+					format-icons = [ "󰤟" "󰤢" "󰤥" "󰤨" "󰤨" ];
+					format-disconnected = "󰤮";
 					max-length = 50;
+					tooltip = true;
+					tooltip-format-wifi = "{essid} -- Strength:{signalStrength}%,  {bandwidthUpBytes} B/s,  {bandwidthDownBytes} B/s";
+					tooltip-format-disconnected = "Disconnected";
 				};
 
 				"wireplumber" = {
@@ -134,14 +161,30 @@ in
 					input_delay = 2;
 					format-icons =  [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
 					actions = {
-						on-click-right = "mode";
+					on-click-right = "mode";
 					};
 				};
 
 				"bluetooth" = {
-					format = " {status}"; 
+					format = ""; 
 					format-connected = " {device_alias}"; 
 					format-connected-battery = " {device_alias} {device_battery_percentage}%"; 
+					on-click = "rofi-bluetooth";
+					on-click-right = "bluetoothctl power off";
+					on_click_middle = "bluetoothctl power on";
+					tooltip = true;
+					tooltip-format-off = "{status}";
+					tooltip-format-on = "{status}";
+					tooltip-format-enumerate-connected = "{device_enumerate}";
+					tooltip-format-enumerate-connected-battery = "{device_enumerate} {device_battery_percentage}%";
+				};
+
+				"idle_inhibitor" = {
+					format = "{icon}";
+					format-icons = {
+						activated = "󰅶 ";
+						deactivated = "󰛊 ";
+					};
 				};
 			};	
 		};	
@@ -151,25 +194,29 @@ in
 				font-family: JetBrainsMono Nerd Font;
 				font-size: 12px;
 				font-weight: bold;
+				opacity: 0.95;
+				padding-top: 2px;
+				padding-bottom: 2px;
 			}
 
 			window#waybar {
-				background-color: transparent;
-				color: ${fg};
-				margin: 10px 15px;
-				padding: 0px;
+				background-color: ${base};
+				opacity: 0.7;
+				color: ${rose};
+				border: 1px solid ${rose};
+				border-radius: 10px;
 			}
 
 			#workspaces {
 				padding:0.1em 0.6em;
-				background-color: ${darkbg};
-				border:1px solid ${fg};
+				background-color: ${overlay};
+				border:1px solid ${rose};
 				border-radius: 10;
 				margin:0.0em 0.8em;
 			}
 
 			#window {
-				color: ${orange};
+				color: ${rose};
 				padding-left: 10px;
 				padding-right: 10px;
 				margin-left: 15px;
@@ -179,98 +226,113 @@ in
 			#workspaces button {
 				padding: 0.0 0.4em;
 				background-color: transparent;
-				color: ${black};
+				color: ${rose};
 				margin: 0.0em 0.2em;
 			}
 
 			#workspaces button.visible {
-				color: ${fg};
+				color: ${rose};
 			}
 
 			#workspaces button.active {
-				color: ${green};
+				color: ${foam};
 			}
 
 			#clock {
-				background: ${darkbg};
+				background: ${overlay};
 				padding: 0.1em 0.4em;
-				color: ${fg};
+				color: ${rose};
 				margin: 0.0em 0.8em;
-				border: 1px solid ${fg};
+				border: 1px solid ${rose};
 				border-radius: 10;
 			}
 
 			#battery {
-				background: ${darkbg};
-				padding: 0.1em 0.4em;
-				color: ${fg};
+				background: ${overlay};
+				padding-right: 20px;
+				padding-left: 0px;
+				color: ${rose};
 				margin-left: 0px;
 				margin-right: 0px;
-				border-right: 0px solid ${fg};
-				border-top: 1px solid ${fg};
-				border-bottom: 1px solid ${fg};
+				border-right: 0px solid ${rose};
+				border-top: 1px solid ${rose};
+				border-bottom: 1px solid ${rose};
 				border-left: 0px solid;
 				border-radius: 0px;
 			}
 
+			#battery.charging {
+				color: ${muted};
+			}
+
 			#battery.good {
-				color: ${fg};
+				color: ${rose};
 			}
 
 			#battery.warning {
-				color: ${yellow}
+				color: ${gold}
 			}
 
 			#battery.critical {
-				color: ${red}
+				color: ${love}
 			}
 
 			#network {
-				background: ${darkbg};
-				padding: 0.1em 0.4em;
+				background: ${overlay};
+				padding-right: 20px;
+				padding-left: 10px;
 				margin-left: 5px;
 				margin-right: 0px;
-				color: ${fg};
-				border-top: 1px solid ${fg};
-				border-bottom: 1px solid ${fg};
+				color: ${rose};
+				border-top: 1px solid ${rose};
+				border-bottom: 1px solid ${rose};
 				border-right: 0px;
-				border-left: 1px solid ${fg};
+				border-left: 1px solid ${rose};
 				border-radius: 10px 0px 0px 10px;
 			}
 
-			#network.wifi {
-				color: ${fg};
+			#network.disabled {
+				color: ${rose};
 			}
 
+			#network.wifi {
+				color: ${rose};
+			}
+
+			#network.disconnected {
+				color: ${gold};
+			}
+
+
 			#wireplumber {
-				background: ${darkbg};
+				background: ${overlay};
 				padding: 0.1em 0.4em;
-				color: ${fg};
+				color: ${rose};
 				border-right: 0px;
-				border-left: 1px solid ${fg};
-				border-top: 1px solid ${fg};
-				border-bottom: 1px solid ${fg};
+				border-left: 1px solid ${rose};
+				border-top: 1px solid ${rose};
+				border-bottom: 1px solid ${rose};
 				border-radius: 10px 0px 0px 10px;
 				margin-left: 15px;
 				margin-right: 0px;
 			}
 
 			#tray {
-				background: ${darkbg};
+				background: ${overlay};
 				padding-right: 15px;
-				color: ${fg};
+				color: ${rose};
 				margin-left: 0px;
 				margin-right: 5px;
-				border-right: 1px solid ${fg};
-				border-top: 1px solid ${fg};
-				border-bottom: 1px solid ${fg};
+				border-right: 1px solid ${rose};
+				border-top: 1px solid ${rose};
+				border-bottom: 1px solid ${rose};
 				border-left: 0px solid;
 				border-radius: 0px 10px 10px 0px;
 			}
 
 			#custom-nix {
 				background: transparent;
-				color: ${cyan};
+				color: ${foam};
 				margin-top: 0px;
 				margin-bottom: 0px;
 				margin-left: 15px;
@@ -279,13 +341,13 @@ in
 			}
 
 			#custom-power {
-				background: ${red};
+				background: ${love};
 				padding-right: 12px;
 				padding-left: 10px;
 				padding-top: 0;
 				padding-bottom: 0;
-				color: ${darkbg};
-				border: 1px solid ${darkbg};
+				color: ${overlay};
+				border: 1px solid ${overlay};
 				border-radius: 10;
 				margin-top: 0px;
 				margin-bottom: 0px;
@@ -294,14 +356,14 @@ in
 			}
 
 			#cava {
-				background: ${darkbg};
-				color: ${cyan};
+				background: ${overlay};
+				color: ${rose};
 				font-size: 10;
 				border-radius: 0px 10px 10px 0px;
 				border-left: 0px;
-				border-right: 1px solid ${fg};
-				border-top: 1px solid ${fg};
-				border-bottom: 1px solid ${fg};
+				border-right: 1px solid ${rose};
+				border-top: 1px solid ${rose};
+				border-bottom: 1px solid ${rose};
 				padding-right: 10px;
 				padding-left: 10px;
 				margin-top: 0px;
@@ -311,16 +373,53 @@ in
 			}
 
 			#bluetooth {
-				background: ${darkbg};
-				padding: 0.1em 0.4em;
-				color: ${fg};
+				background: ${overlay};
+				padding-right: 20px;
+				padding-left: 0px;
+				color: ${rose};
 				margin-left: 0px;
 				margin-right: 0px;
-				border-right: 0px solid ${fg};
-				border-top: 1px solid ${fg};
-				border-bottom: 1px solid ${fg};
+				border-right: 0px solid ${rose};
+				border-top: 1px solid ${rose};
+				border-bottom: 1px solid ${rose};
 				border-left: 0px solid;
 				border-radius: 0px;
+			}
+
+			#bluetooth.off {
+				color: ${rose};
+			} 
+
+			#bluetooth.on {
+				color: ${rose};
+			}
+
+			#bluetooth.connected {
+				color: ${rose};
+			}
+
+			#idle_inhibitor {
+				color: ${rose};
+				background: ${overlay};
+				border-radius: 0px;
+				border-left: 0px;
+				border-right: 0px;
+				border-top: 1px solid ${rose};
+				border-bottom: 1px solid ${rose};
+				padding-left: 0px;
+				padding-right: 20px;
+				margin-top: 0px;
+				margin-bottom: 0px;
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+
+			#idle_inhibitor.activated {
+				color: ${rose};
+			}
+
+			#idle_inhibitor.deactivated {
+				color: ${rose};
 			}
 		'';
 	};

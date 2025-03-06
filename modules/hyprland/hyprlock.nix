@@ -26,7 +26,7 @@ in
 
 			background = [
 				{
-					path = "~/Personal/pics/wallpapers/gimpmade/shapeurworld.png";
+					path = "~/Personal/pics/wallpapers/moon.jpg";
 					vibrancy = 0.2;
 					vibrancy_darkness = 0.2;
 				}

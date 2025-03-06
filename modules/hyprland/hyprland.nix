@@ -10,6 +10,23 @@ let
   red = "ff5555ff";
   yellow = "f1fa8cff";
 	black = "5b6078ff";
+
+	base = "191724";
+	surface = "1f1d2e";
+	overlay = "26233a";
+	muted = "6e6a86";
+	subtle = "908caa";
+	text = "e0def4";
+	love = "eb6f92";
+	gold = "f6c177";
+	rose = "ebbcba";
+	pine = "31748f";
+	foam = "9ccfd8";
+	iris = "c4a7e7";
+	hlow = "2a283e";
+	hmed = "44415a";
+	hhigh = "56526e";
+
 in 
 {
 	wayland.windowManager.hyprland = {
@@ -31,6 +48,7 @@ in
 				"ALT, O, togglesplit"
 				"ALT, backspace, killactive,"
 				"SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+				"ALT_SHIFT, P, exec, grim"
 
 				# windows
 				"ALT, h, movefocus, l"
@@ -113,18 +131,27 @@ in
 			windowrule = [
 				"opaque, title:(Firefox)(.*)"
 				"noblur, title:(Firefox)(.*)"
-				"opaque, title:(Minecraft 1.21.4)"
-				"noblur, title:(Minecraft 1.21.4)"
+				"opaque, title:(Minecraft* 1.21.3)(.*)"
+				"noblur, title:(Minecraft* 1.21.3)(.*)"
+			];
+
+			layerrule = [
+				"blur,rofi"
+				# "ignorezero,rofi"
+				"dimaround,rofi"
+				"animation popin, rofi"
+				"blur, waybar"
+				#"ignorezero, waybar"
 			];
 
 			# startup apps
 			exec-once = [
-				"waybar"
 				"hyprpaper"
 				"hypridle"
 				"kanshi"
 				"wl-paste --type text --watch cliphist store"
 				"wl-paste --type image --watch cliphist store"
+				"sleep 30s && waybar"
 			];
 
 			# ----- Decorations --------
@@ -143,19 +170,23 @@ in
 					passes = 3;
 					ignore_opacity = true;
 					new_optimizations = true;
-					xray = false;
+					xray = true;
 					noise = 0.0117;
 					contrast = 0.8916;
 					brightness = 0.8172;
 					vibrancy = 0.1696;
 					vibrancy_darkness = 0.0;
-					special = false;
+					special = true;
 					popups = false;
 					popups_ignorealpha = 0.2;
 				};
 
-				active_opacity = 0.95;
-				inactive_opacity = 0.85;
+				active_opacity = 0.9;
+				inactive_opacity = 0.8;
+			};
+
+			cursor = {
+				enable_hyprcursor = false;
 			};
 
 		 # ------ General -------
@@ -163,8 +194,8 @@ in
 				gaps_in = 5;
 				gaps_out = 15;
 				border_size = 2;
-				"col.active_border" = "rgba(${fg}) rgba(${purple}) 45deg";
-				"col.inactive_border" = "rgba(${fg})";
+				"col.active_border" = "rgb(${rose}) rgb(${rose}) 45deg";
+				"col.inactive_border" = "rgb(${muted})";
 				layout = "dwindle";
 		 	};
 
@@ -215,6 +246,10 @@ in
 			env = [
 				"LIBVA_DRIVER_NAME,nvidia"
 				"__GLX_VENDOR_LIBRARY_NAME,nvidia"
+				"HYPRCURSOR_THEME, Bibata-Modern-Ice"
+				"HYPRCURSOR_SIZE, 24"
+				"XCURSOR_THEME, Bibata-Modern-Ice"
+				"XCURSOR_SIZE, 24"
 			];
 			
 			render = {

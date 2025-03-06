@@ -22,7 +22,7 @@
 						mode = "2560x1600";
 						position = "2560x0";
 					};
-					HDMI-1 = {
+					DP-2 = {
 						enable = true;
 						primary = true;
 						mode = "2560x1440";

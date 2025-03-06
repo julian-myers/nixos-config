@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 {
 	home.packages = with pkgs;[
+		vscode
+		libreoffice
+		zip
+		selectdefaultapplication
+		prismlauncher
+		atlauncher
 		spotify-cli-linux
 		spotify-tray
 		lua-language-server
@@ -16,7 +22,6 @@
 		yazi
 		kitty-themes
 		cava
-		rofi-bluetooth
 		systemdUkify
 		libnotify
 		xcolor
@@ -37,17 +42,16 @@
 		brightnessctl
 		pciutils
 		discord
-		spotify
 		fzf
 		screenkey
 		read-edid
 		cargo
 		tree-sitter
 		wget
-		rofi
 		curl
 		neofetch
 		tree
+		bluez
 		font-awesome
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];

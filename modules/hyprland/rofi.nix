@@ -16,7 +16,9 @@
 
 		extraConfig = {
 			display-drun = " ";
-			display-window = "Windows: ";
+			display-window = " ";
+			display-keys = " ";
+			display-run = " ";
 			drun-display-format = " {icon} {name} ";
 			font = "JetBrainsMono Nerd Font Semibold 12";
 			modi = "drun,window,keys,run";
@@ -31,21 +33,36 @@
 		text = ''
 			@theme "/dev/null"
 			* {
-				bg: #1A1B29;
-				bg-alt: #282a36;
-				fg: #f8f8f2;
-				fg-alt: #665c54;
-				black1: #5B6078;
-				black2: #928374;
-				red: #ff5555;
-				green: #50fa7b;
-				yellow: #f1fa8c;
-				blue: #bd93f9;
-				magenta: #ff79c6; 
-				cyan: #8be9fd;
-				white: #d4be98;
+				bg: #1A1B29ff;
+				bg-alt: #282a36e6;
+				fg: #f8f8f2e6;
+				fg-alt: #665c54e6;
+				black1: #5B6078ff;
+				black2: #928374ff;
+				red: #ff5555ff;
+				green: #50fa7bff;
+				yellow: #f1fa8cff;
+				blue: #bd93f9ff;
+				magenta: #ff79c6ff; 
+				cyan: #8be9fdff;
+				white: #d4be98ff;
 
-				background-color: @bg;
+				base: #191724;
+				surface: #1f1d2e;
+				overlay: #26233a;
+				muted: #6e6a86;
+				subtle: #908caa;
+				text: #e0def4;
+				love: #eb6f92;
+				gold: #f6c177;
+				rose: #ebbcba;
+				pine: #31748f;
+				foam: #9ccfd8;
+				iris: #c4a7e7;
+				hlow: #2a283e;
+				hmed: #44415a;
+				hhigh: #56526e;
+
 				border: 0px;
 				margin: 0px;
 				padding: 0px;
@@ -55,26 +72,27 @@
 			window {
 				location: center;
 				border-radius: 15px;
-				transparency: "real"
+				transparency: "real";
 				height: 33em;
 				width: 63em;
+				background-color: transparent;
 			}
 
 			mainbox {
 				background-color: transparent;
 				border: 2px solid;
-				border-color: @fg;
+				border-color: @rose;
 				border-radius: 15px;
 				orientation: horizontal;
-				children: [ "dummywall", "listbox"];
+				children: [ "dummywall" , "listbox" ];
 			}
 
 			dummywall {
-				width: 37em;
+				width: 5em;
 				expand: false;
 				orientation: horizontal;
 				background-color: transparent;
-				background-image: url("~/Personal/pics/wallpapers/bwdune.png", height);
+				children: [ "mode-switcher" ];
 			}
 
 			mode-switcher {
@@ -91,39 +109,51 @@
 				vertical-align: 0.50;
 				horizontal-align: 0.45;
 				border-radius: 2em;
-				background-color: @bg;
-				text-color: @fg;
+				background-color: @base;
+				text-color: @subtle;
+				border: 2px solid;
+				border-color: @subtle;
 			}
 
 			button selected {
-				background-color: @fg;
-				text-color: @bg;
+				text-color: @foam;
 			}
 
 			inputbar {
 				enabled: true;
-				children: [ "entry" ];
-				background-color: transparent;
+				children: [ "prompt" , "entry" ];
+				background-color: @text;
+				text-color: @base;
+				border: 0px;
+				border-radius: 15px; 
+				padding: 10px;
+			}
+
+			prompt {
+				enable: true;
+				background-color: @text;
+				text-color: @base;
 			}
 
 			entry {
-				background-color: @fg;
-				text-color: @bg;
+				background-color: @text;
+				text-color: @base;
 			}
 
 			listbox {
 					spacing:                     0em;
-					padding:                     2em;
-					children:                    [ "dummy" , "listview" , "dummy" ];
+					padding:                     1em;
+					children:                    [ "dummy" , "inputbar" , "listview" , "dummy" ];
 					background-color:            transparent;
 			}
+
 			listview {
 					enabled:                     true;
-					spacing:                     0em;
-					padding:                     0em;
-					columns:                     1;
-					lines:                       8;
-					cycle:                       true;
+					spacing:                     0.1em;
+					padding:                     0.2em;
+					columns:                     2;
+					lines:                       7;
+					cycle:                       false;
 					dynamic:                     true;
 					scrollbar:                   false;
 					layout:                      vertical;
@@ -133,8 +163,19 @@
 					fixed-columns:               true;
 					cursor:                      "default";
 					background-color:            transparent;
-					text-color:                  @main-fg;
+					text-color:                  @text;
 			}
+
+			/**
+			scrollbar {
+				background-color: @base;
+				handle-width: 10px;
+				handle-color: @subtle;
+				border: 1px solid;
+				border-color: @text;
+				border-radius: 10px;
+			} */
+
 			dummy {
 					background-color:            transparent;
 			}
@@ -145,20 +186,27 @@
 					enabled:                     true;
 					spacing:                     1em;
 					padding:                     0.4em;
+					border: 1px solid;
+					border-color: transparent;
+					border-radius: 10px;
 					cursor:                      pointer;
 					background-color:            transparent;
-					text-color:                  @main-fg;
+					text-color:                  @text;
 			}
+
 			element selected.normal {
-					background-color:            @select-bg;
-					text-color:                  @select-fg;
+					background-color:            @base;
+					text-color:                  @pine;
+					border-color: @rose;
 			}
+
 			element-icon {
 					size:                        2.8em;
 					cursor:                      inherit;
 					background-color:            transparent;
 					text-color:                  inherit;
 			}
+
 			element-text {
 					vertical-align:              0.5;
 					horizontal-align:            0.0;

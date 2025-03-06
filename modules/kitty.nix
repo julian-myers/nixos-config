@@ -23,12 +23,13 @@ in
 		};
 
 		shellIntegration.enableZshIntegration = true;
-		themeFile = "Dracula";
+		themeFile = "rose-pine";
 		keybindings = {
 			"super+1" = "goto_tab 1";
 			"super+2" = "goto_tab 2";
 			"super+3" = "goto_tab 3";
 			"super+4" = "goto_tab 4";
+			"super+shift+f" = "toggle_fullscreen";
 		};
 
 		settings = {
@@ -40,7 +41,7 @@ in
 			inactive_tab_background = "#1E2030";
 			tab_bar_background = "#181926";
 
-			background = "#1a1b29";
+			# background = "#1a1b29";
 		};
 	};
 
