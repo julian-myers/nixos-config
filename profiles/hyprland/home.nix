@@ -1,7 +1,6 @@
 { config, pkgs, inputs, spicetify-nix, lib, ... }:
 let
   spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
-	sources = import ./npins;
 in 
 {
 	imports = [
@@ -10,7 +9,7 @@ in
 		../../modules/dunst.nix 
 		../../modules/kitty.nix 
 		../../modules/zsh.nix 
-		../../modules/yazi/yazi.nix
+		# ../../modules/yazi/yazi.nix
 		../../modules/hyprland/rofi.nix
 		../../modules/hyprland/hyprland.nix
 		../../modules/hyprland/waybar.nix
@@ -19,7 +18,6 @@ in
 		../../modules/hyprland/hypridle.nix
 		../../modules/gtk.nix
 		spicetify-nix.homeManagerModules.default
-		(sources.catppuccin + "modules/home-manager")
 	];
 	home.sessionVariables = {
 		EDITOR = "nvim";
@@ -51,11 +49,7 @@ in
 
 	qt = {
 		enable = true;
-		style = {
-			name = "Dracula";
-			package = pkgs.dracula-qt5-theme;
-		};
-		platformTheme.name = "adwaita";
+		platformTheme.name = "kvantum";
 	};
 	
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -77,8 +71,6 @@ in
 		};
 	};
 
-
-
 	systemd.user.services.waybar = {
 		Install.WantedBy = [ "graphical-session.target" ]; 
 		ServiceConfig = {
@@ -89,15 +81,5 @@ in
 			ExecStart = "${pkgs.bash}/bin/bash -c 'for mon in $(${pkgs.hyprland}/bin/hyprctl monitors | grep \"Monitor\" | awk \"{print $2}\"); do WAYBAR_MONITOR=$mon ${pkgs.waybar}/bin/waybar & done'";
 			Restart = "always";
 		};
-
-	};
-
-	catppuccin = {
-		enable = true;
-		gtk.enable = true;
-		gtk.accent = "blue";
-		gtk.flavor = "mocha";
-		gtk.icon.accent = "blue";
-		gtk.icon.enable = true;
 	};
 }

@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
 	home.packages = with pkgs; [
+		eww
+		lutgen
 		drawing
 		networkmanagerapplet
 		grim
@@ -8,5 +10,7 @@
 		waybar
 		kanshi
 		wl-clipboard
+		catppuccinifier-gui
+		catppuccinifier-cli
 	];
 }

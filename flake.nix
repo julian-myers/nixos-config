@@ -8,7 +8,6 @@
 		spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-
 	outputs = { self, nixpkgs, home-manager, spicetify-nix, ... }: 
 		let
 		  lib = nixpkgs.lib;

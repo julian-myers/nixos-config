@@ -27,11 +27,46 @@ let
 	hmed = "44415a";
 	hhigh = "56526e";
 
-	colors = import ./colorscheme.nix;
+	Rosewater = "f5e0dc";
+	Flamingo = "f2cdcd";
+	Pink = "f5c2e7";
+	Mauve = "cba6f7";
+	Red = "f38ba8";
+	Maroon = "eba0ac";
+	Peach = "fab387";
+	Yellow = "f9e2af";
+	Green = "a6e3a1";
+	Teal = "94e2d5";
+	Sky = "89dceb";
+	Sapphire = "74c7ec";
+	Blue = "89b4fa";
+	Lavender = "b4befe";
+	Text = "cdd6f4";
+	Subtext1 = "bac2de";
+	Subtext0 = "a6adc8";
+	Overlay2 = "9399b2";
+	Overlay1 = "7f849c";
+	Overlay0 = "6c7086";
+	Surface2 = "585b70";
+	Surface1 = "45475a";
+	Surface0 = "313244";
+	Base = "1e1e2e";
+	Mantle = "181825";
+	Crust = "11111b";
 in 
 {
 	wayland.windowManager.hyprland = {
 		enable = true;
+
+		#extraConfig = ''
+		#	for_window [class="Waybar" type="dock"] {
+		#	shadow = on
+		#	shadow_color = 0x000000aa
+		#	shadow_offset = 0 10
+		#	shadow_radius = 12
+		#}
+		#'';
+
 		settings = {
 			"$terminal" = "kitty";
 			"$browser" = "firefox";
@@ -148,7 +183,6 @@ in
 				# "ignorezero,rofi"
 				"dimaround,rofi"
 				"animation popin, rofi"
-				"blur, waybar"
 				"ignorezero, waybar"
 			];
 
@@ -165,9 +199,9 @@ in
 				rounding = 10;
 				shadow = {
 					enabled = true;
-					range = 6;
-					render_power = 1;
-					color = "rgb(${colors.Mantle})";
+					range = 20;
+					render_power = 2;
+					color = "rgb(${Mantle})";
 					offset = "1.0 1.0";
 				};
 				
@@ -198,11 +232,11 @@ in
 
 		 # ------ General -------
 			general = {
-				gaps_in = 5;
+				gaps_in = 10;
 				gaps_out = 15;
 				border_size = 2;
-				"col.active_border" = "rgb(${colors.Blue}) rgb(${colors.Text}) 45deg";
-				"col.inactive_border" = "rgb(${colors.Lavender})";
+				"col.active_border" = "rgb(${Blue}) rgb(${Text}) 45deg";
+				"col.inactive_border" = "rgb(${Lavender})";
 				layout = "dwindle";
 		 	};
 

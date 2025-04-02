@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
 	home.packages = with pkgs; [
 		rofi-power-menu
@@ -26,7 +26,8 @@
 			icon-theme = "Papirus";
 			window-format = "{w}{t}";
 		};
-		theme = "~/.config/rofi/theme.rasi";
+
+		theme = lib.mkDefault "~/.config/rofi/theme.rasi";
 	};
 
 	home.file.".config/rofi/theme.rasi" = {

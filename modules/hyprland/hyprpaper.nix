@@ -15,12 +15,15 @@
 				"~/Personal/pics/wallpapers/moon.jpg"
 				"~/Personal/pics/wallpapers/rosepineputers.png"
 				"~/Personal/pics/wallpapers/rpcity.png"
+				"~/Personal/pics/wallpapers/marketplace.png"
+				"~/Personal/pics/wallpapers/toast.png"
+				"~/Personal/pics/wallpapers/aesthetic.jpg"
 			];
 
 			wallpaper = [
-				"eDP-1, ~/Personal/pics/wallpapers/rpcity.png"
-				"DP-1, ~/Personal/pics/wallpapers/rpcity.png"
-				"DP-2, ~/Personal/pics/wallpapers/rpcity.png"
+				"eDP-1, ~/Personal/pics/wallpapers/aesthetic.jpg"
+				"DP-1, ~/Personal/pics/wallpapers/aesthetic.jpg"
+				"DP-2, ~/Personal/pics/wallpapers/aesthetic.jpg"
 			];
 		};
 		package = pkgs.hyprpaper;

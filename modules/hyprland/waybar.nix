@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
 	darkbg = "#1A1B29";
   bg = "#282a36";
@@ -40,16 +40,11 @@ in
 
 	programs.waybar = {
 		enable = true;
-
 		package = pkgs.waybar;
-
 		systemd.enable = true;
-
 		settings = {
 			mainBar = {
 				position = "top";
-				margin-left = 15;
-				margin-right = 15;
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "clock" ];
 				modules-right = [
@@ -209,7 +204,6 @@ in
 				font-family: JetBrainsMono Nerd Font;
 				font-size: 12px;
 				font-weight: bold;
-				opacity: 0.95;
 				padding-top: 2px;
 				padding-bottom: 2px;
 			}
@@ -218,16 +212,24 @@ in
 				background-color: transparent;
 			}
 
+			window#waybar > box {
+				opacity: 0.9;
+				border-radius: 15px;
+				margin: 4px 8px 8px 8px;
+				background-color: ${colors.Crust};
+				box-shadow: 4px 4px 8px -2px #101010;
+			}
+
 			#workspaces {
 				padding:0.1em 0.6em;
 				background-color: ${colors.Base};
-				border:1px solid ${colors.Text};
+				border:2px solid ${colors.Lavender};
 				border-radius: 10px;
 				margin:0.0em 0.8em;
 			}
 
 			#window {
-				color: ${colors.Text};
+				color: ${colors.Peach};
 				padding-left: 10px;
 				padding-right: 10px;
 				margin-left: 15px;
@@ -246,7 +248,7 @@ in
 			}
 
 			#workspaces button.active {
-				color: ${colors.Blue};
+				color: ${colors.Peach};
 			}
 
 			#clock {
@@ -254,7 +256,7 @@ in
 				padding: 0.1em 0.4em;
 				color: ${colors.Text};
 				margin: 0.0em 0.8em;
-				border: 1px solid ${colors.Text};
+				border: 2px solid ${colors.Lavender};
 				border-radius: 10px;
 			}
 
@@ -265,9 +267,9 @@ in
 				color: ${colors.Text};
 				margin-left: 0px;
 				margin-right: 0px;
-				border-right: 0px solid ${colors.Text};
-				border-top: 1px solid ${colors.Text};
-				border-bottom: 1px solid ${colors.Text};
+				border-right: 0px solid ${colors.Lavender};
+				border-top: 2px solid ${colors.Lavender};
+				border-bottom: 2px solid ${colors.Lavender};
 				border-left: 0px solid;
 				border-radius: 0px;
 			}
@@ -295,10 +297,10 @@ in
 				margin-left: 5px;
 				margin-right: 0px;
 				color: ${colors.Text};
-				border-top: 1px solid ${colors.Text};
-				border-bottom: 1px solid ${colors.Text};
+				border-top: 2px solid ${colors.Lavender};
+				border-bottom: 2px solid ${colors.Lavender};
 				border-right: 0px;
-				border-left: 1px solid ${colors.Text};
+				border-left: 2px solid ${colors.Lavender};
 				border-radius: 10px 0px 0px 10px;
 			}
 
@@ -322,9 +324,9 @@ in
 				color: ${colors.Text};
 				margin-left: 0px;
 				margin-right: 0px;
-				border-right: 0px solid ${colors.Text};
-				border-top: 1px solid ${colors.Text};
-				border-bottom: 1px solid ${colors.Text};
+				border-right: 0px solid ${colors.Lavender};
+				border-top: 2px solid ${colors.Lavender};
+				border-bottom: 2px solid ${colors.Lavender};
 				border-left: 0px solid;
 				border-radius: 0px;
 			}
@@ -336,7 +338,7 @@ in
 				padding-top: 0px;
 				padding-bottom: 0px;
 				color: ${colors.Base};
-				border: 1px solid ${colors.Base};
+				border: 2px solid ${colors.Base};
 				border-radius: 10px;
 				margin-top: 0px;
 				margin-bottom: 0px;
@@ -345,7 +347,7 @@ in
 			}
 
 			#cava {
-				color: ${colors.Blue};
+				color: ${colors.Lavender};
 				font-size: 10px;
 				padding-right: 10px;
 				padding-left: 10px;
@@ -364,9 +366,9 @@ in
 				margin-bottom: 0px;
 				margin-left: 0px;
 				margin-right: 0px;
-				border-right: 1px solid ${colors.Text};
-				border-top: 1px solid ${colors.Text};
-				border-bottom: 1px solid ${colors.Text};
+				border-right: 2px solid ${colors.Lavender};
+				border-top: 2px solid ${colors.Lavender};
+				border-bottom: 2px solid ${colors.Lavender};
 				border-left: 0px solid;
 				border-radius: 0px 10px 10px 0px;
 			}

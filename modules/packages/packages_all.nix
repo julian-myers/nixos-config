@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
 	home.packages = with pkgs;[
+		npins
+		catppuccin
 		rustup
 		nodePackages.prettier
 		vscode
@@ -40,7 +42,6 @@
 		unzip
 		btop
 		conky
-		papirus-icon-theme
 		autorandr
 		brightnessctl
 		pciutils

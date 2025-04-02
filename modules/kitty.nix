@@ -35,6 +35,7 @@ in
 		settings = {
 			tab_bar_edge = "top";
 			tab_powerline_style = "angled";
+			tab_bar_style = "powerline";
 		};
 
 		extraConfig = ''
@@ -43,7 +44,7 @@ in
 
 			# The basic colors
 			foreground              #cdd6f4
-			background              #1e1e2e
+			background              #11111b
 			selection_foreground    #1e1e2e
 			selection_background    #f5e0dc
 
@@ -64,8 +65,8 @@ in
 			macos_titlebar_color system
 
 			# Tab bar colors
-			active_tab_foreground   #11111b
-			active_tab_background   #cba6f7
+			active_tab_foreground   #1e1e2e
+			active_tab_background   #89b4fa
 			inactive_tab_foreground #cdd6f4
 			inactive_tab_background #181825
 			tab_bar_background      #11111b
