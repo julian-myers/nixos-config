@@ -27,6 +27,8 @@ let
 	hlow = "#2a283e";
 	hmed = "#44415a";
 	hhigh = "#56526e";
+
+	colors = import ./colorscheme.nix;
 in 
 {
 	home.packages = with pkgs; [
@@ -38,17 +40,32 @@ in
 
 	programs.waybar = {
 		enable = true;
+
 		package = pkgs.waybar;
+
+		systemd.enable = true;
+
 		settings = {
 			mainBar = {
-				position = "bottom";
+				position = "top";
 				margin-left = 15;
 				margin-right = 15;
-				modules-left = [ "custom/nix" "hyprland/workspaces" "hyprland/window" ];
+				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "clock" ];
-				modules-right = [  "wireplumber" "cava" "network" "bluetooth" "battery" "idle_inhibitor" "tray" "custom/power" ];
+				modules-right = [
+					"cava"
+					"network"
+					#"bluetooth"
+					"battery"
+					"wireplumber"
+					"idle_inhibitor"
+					"custom/power"
+					];
 
-				outputs = [ "DP-1" "eDP-1" ];
+				# output = [
+				#	 "eDP-1"
+				# ];
+
 				"hyprland/workspaces" = {
 					format = "{icon}";
 					format-icons = {
@@ -63,11 +80,9 @@ in
 							"9"="󰲱 ";
 							"default"= " ";
 					};
-					persistent-workspaces = {
-						"DP-2" = [ "1" "2" "3" "4" "5"];
-						"DP-1" = [ "1" "2" "3" "4" "5"];
-						"eDP-1" = [ "1" "2" "3" "4" "5"];
-					};
+				#	persistent-workspaces = {
+				#		"*" = 5;
+				#	};
 				};
 
 				"hyprland/window" = {
@@ -200,155 +215,129 @@ in
 			}
 
 			window#waybar {
-				background-color: ${base};
-				opacity: 0.7;
-				color: ${rose};
-				border: 1px solid ${rose};
-				border-radius: 10px;
+				background-color: transparent;
 			}
 
 			#workspaces {
 				padding:0.1em 0.6em;
-				background-color: ${overlay};
-				border:1px solid ${rose};
-				border-radius: 10;
+				background-color: ${colors.Base};
+				border:1px solid ${colors.Text};
+				border-radius: 10px;
 				margin:0.0em 0.8em;
 			}
 
 			#window {
-				color: ${rose};
+				color: ${colors.Text};
 				padding-left: 10px;
 				padding-right: 10px;
 				margin-left: 15px;
-				font-size: 14;
+				font-size: 14px;
 			}
 
 			#workspaces button {
-				padding: 0.0 0.4em;
+				padding: 0.0em 0.4em;
 				background-color: transparent;
-				color: ${rose};
+				color: ${colors.Text};
 				margin: 0.0em 0.2em;
 			}
 
 			#workspaces button.visible {
-				color: ${rose};
+				color: ${colors.Text};
 			}
 
 			#workspaces button.active {
-				color: ${foam};
+				color: ${colors.Blue};
 			}
 
 			#clock {
-				background: ${overlay};
+				background: ${colors.Base};
 				padding: 0.1em 0.4em;
-				color: ${rose};
+				color: ${colors.Text};
 				margin: 0.0em 0.8em;
-				border: 1px solid ${rose};
-				border-radius: 10;
+				border: 1px solid ${colors.Text};
+				border-radius: 10px;
 			}
 
 			#battery {
-				background: ${overlay};
+				background: ${colors.Base};
 				padding-right: 20px;
 				padding-left: 0px;
-				color: ${rose};
+				color: ${colors.Text};
 				margin-left: 0px;
 				margin-right: 0px;
-				border-right: 0px solid ${rose};
-				border-top: 1px solid ${rose};
-				border-bottom: 1px solid ${rose};
+				border-right: 0px solid ${colors.Text};
+				border-top: 1px solid ${colors.Text};
+				border-bottom: 1px solid ${colors.Text};
 				border-left: 0px solid;
 				border-radius: 0px;
 			}
 
 			#battery.charging {
-				color: ${muted};
+				color: ${colors.Green};
 			}
 
 			#battery.good {
-				color: ${rose};
+				color: ${colors.Text};
 			}
 
 			#battery.warning {
-				color: ${gold}
+				color: ${colors.Yellow}
 			}
 
 			#battery.critical {
-				color: ${love}
+				color: ${colors.Red}
 			}
 
 			#network {
-				background: ${overlay};
+				background: ${colors.Base};
 				padding-right: 20px;
 				padding-left: 10px;
 				margin-left: 5px;
 				margin-right: 0px;
-				color: ${rose};
-				border-top: 1px solid ${rose};
-				border-bottom: 1px solid ${rose};
+				color: ${colors.Text};
+				border-top: 1px solid ${colors.Text};
+				border-bottom: 1px solid ${colors.Text};
 				border-right: 0px;
-				border-left: 1px solid ${rose};
+				border-left: 1px solid ${colors.Text};
 				border-radius: 10px 0px 0px 10px;
 			}
 
 			#network.disabled {
-				color: ${rose};
+				color: ${colors.Text};
 			}
 
 			#network.wifi {
-				color: ${rose};
+				color: ${colors.Text};
 			}
 
 			#network.disconnected {
-				color: ${gold};
+				color: ${colors.Text};
 			}
 
 
 			#wireplumber {
-				background: ${overlay};
-				padding: 0.1em 0.4em;
-				color: ${rose};
-				border-right: 0px;
-				border-left: 1px solid ${rose};
-				border-top: 1px solid ${rose};
-				border-bottom: 1px solid ${rose};
-				border-radius: 10px 0px 0px 10px;
-				margin-left: 15px;
-				margin-right: 0px;
-			}
-
-			#tray {
-				background: ${overlay};
-				padding-right: 15px;
-				color: ${rose};
+				background: ${colors.Base};
+				padding-right: 20px;
+				padding-left: 0px;
+				color: ${colors.Text};
 				margin-left: 0px;
-				margin-right: 5px;
-				border-right: 1px solid ${rose};
-				border-top: 1px solid ${rose};
-				border-bottom: 1px solid ${rose};
+				margin-right: 0px;
+				border-right: 0px solid ${colors.Text};
+				border-top: 1px solid ${colors.Text};
+				border-bottom: 1px solid ${colors.Text};
 				border-left: 0px solid;
-				border-radius: 0px 10px 10px 0px;
-			}
-
-			#custom-nix {
-				background: transparent;
-				color: ${foam};
-				margin-top: 0px;
-				margin-bottom: 0px;
-				margin-left: 15px;
-				margin-right: 10px;
-				font-size: 18;
+				border-radius: 0px;
 			}
 
 			#custom-power {
-				background: ${love};
+				background: ${colors.Red};
 				padding-right: 12px;
 				padding-left: 10px;
-				padding-top: 0;
-				padding-bottom: 0;
-				color: ${overlay};
-				border: 1px solid ${overlay};
-				border-radius: 10;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				color: ${colors.Base};
+				border: 1px solid ${colors.Base};
+				border-radius: 10px;
 				margin-top: 0px;
 				margin-bottom: 0px;
 				margin-left: 5px;
@@ -356,14 +345,8 @@ in
 			}
 
 			#cava {
-				background: ${overlay};
-				color: ${rose};
-				font-size: 10;
-				border-radius: 0px 10px 10px 0px;
-				border-left: 0px;
-				border-right: 1px solid ${rose};
-				border-top: 1px solid ${rose};
-				border-bottom: 1px solid ${rose};
+				color: ${colors.Blue};
+				font-size: 10px;
 				padding-right: 10px;
 				padding-left: 10px;
 				margin-top: 0px;
@@ -372,54 +355,28 @@ in
 				margin-right: 5px;
 			}
 
-			#bluetooth {
-				background: ${overlay};
-				padding-right: 20px;
-				padding-left: 0px;
-				color: ${rose};
-				margin-left: 0px;
-				margin-right: 0px;
-				border-right: 0px solid ${rose};
-				border-top: 1px solid ${rose};
-				border-bottom: 1px solid ${rose};
-				border-left: 0px solid;
-				border-radius: 0px;
-			}
-
-			#bluetooth.off {
-				color: ${rose};
-			} 
-
-			#bluetooth.on {
-				color: ${rose};
-			}
-
-			#bluetooth.connected {
-				color: ${rose};
-			}
-
 			#idle_inhibitor {
-				color: ${rose};
-				background: ${overlay};
-				border-radius: 0px;
-				border-left: 0px;
-				border-right: 0px;
-				border-top: 1px solid ${rose};
-				border-bottom: 1px solid ${rose};
+				color: ${colors.Text};
+				background: ${colors.Base};
 				padding-left: 0px;
 				padding-right: 20px;
 				margin-top: 0px;
 				margin-bottom: 0px;
 				margin-left: 0px;
 				margin-right: 0px;
+				border-right: 1px solid ${colors.Text};
+				border-top: 1px solid ${colors.Text};
+				border-bottom: 1px solid ${colors.Text};
+				border-left: 0px solid;
+				border-radius: 0px 10px 10px 0px;
 			}
 
 			#idle_inhibitor.activated {
-				color: ${rose};
+				color: ${colors.Lavender};
 			}
 
 			#idle_inhibitor.deactivated {
-				color: ${rose};
+				color: ${colors.Text};
 			}
 		'';
 	};

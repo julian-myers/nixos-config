@@ -102,6 +102,10 @@
     enable = true;
   };
 
+	hardware.opengl = {
+		enable = true;
+	};
+
   services.xserver.videoDrivers = [ "nvidia" ];
 	boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.edid_fallback=1" ];
 

@@ -7,5 +7,6 @@
 		hyprpicker
 		waybar
 		kanshi
+		wl-clipboard
 	];
 }

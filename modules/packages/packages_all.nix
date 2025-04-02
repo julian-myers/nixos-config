@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 {
 	home.packages = with pkgs;[
+		rustup
+		nodePackages.prettier
 		vscode
+		google-java-format
 		libreoffice
 		zip
 		selectdefaultapplication
@@ -45,7 +48,6 @@
 		fzf
 		screenkey
 		read-edid
-		cargo
 		tree-sitter
 		wget
 		curl
@@ -54,5 +56,6 @@
 		bluez
 		font-awesome
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+		openjfx23
   ];
 }

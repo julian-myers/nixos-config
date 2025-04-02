@@ -9,7 +9,7 @@ let
   purple = "bd93f9ff";
   red = "ff5555ff";
   yellow = "f1fa8cff";
-	black = "5b6078ff";
+	black = "000000b0";
 
 	base = "191724";
 	surface = "1f1d2e";
@@ -27,6 +27,7 @@ let
 	hmed = "44415a";
 	hhigh = "56526e";
 
+	colors = import ./colorscheme.nix;
 in 
 {
 	wayland.windowManager.hyprland = {
@@ -34,6 +35,12 @@ in
 		settings = {
 			"$terminal" = "kitty";
 			"$browser" = "firefox";
+
+			monitor = [
+				"eDP-1, preferred, 0x0, 1.3333"
+				"desc:Dell Inc. DELL S2725DS 4DGBS44, preferred, -1280x-1600, 1"
+				"desc:Dell Inc. DELL S3222DGM FZPYJK3, preferred, 1280x-1600, 1"
+			];
 
 			# ---- KeyBinds -----
 			bind = [
@@ -92,8 +99,6 @@ in
 				"ALT_SHIFT, S, movetoworkspace, special:magic"
 
 
-				"SUPER, D, exec, kanshictl switch \"docked\""
-				"SUPER, U, exec, kanshictl switch \"undocked\""
 				"SUPER, H, exec, hyprctl reload"
 				"SUPER, W, exec, pkill waybar && waybar &"
 				"SUPER, B, exec, systemctl --user restart hyperpaper.service"
@@ -133,6 +138,9 @@ in
 				"noblur, title:(Firefox)(.*)"
 				"opaque, title:(Minecraft* 1.21.3)(.*)"
 				"noblur, title:(Minecraft* 1.21.3)(.*)"
+				"opaque, title:(Julian's App)(.*)"
+				"noblur, title:(Julian's App)(.*)"
+				"float, title:(Julian's App)(.*)"
 			];
 
 			layerrule = [
@@ -141,27 +149,26 @@ in
 				"dimaround,rofi"
 				"animation popin, rofi"
 				"blur, waybar"
-				#"ignorezero, waybar"
+				"ignorezero, waybar"
 			];
 
 			# startup apps
 			exec-once = [
 				"hyprpaper"
 				"hypridle"
-				"kanshi"
 				"wl-paste --type text --watch cliphist store"
 				"wl-paste --type image --watch cliphist store"
-				"sleep 30s && waybar"
 			];
 
 			# ----- Decorations --------
 			decoration = {
 				rounding = 10;
 				shadow = {
-					enabled = false;
-					range = 4;
-					render_power = 3;
-					color = "rgba(181926aa)";
+					enabled = true;
+					range = 6;
+					render_power = 1;
+					color = "rgb(${colors.Mantle})";
+					offset = "1.0 1.0";
 				};
 				
 				blur = {
@@ -170,7 +177,7 @@ in
 					passes = 3;
 					ignore_opacity = true;
 					new_optimizations = true;
-					xray = true;
+					xray = false;
 					noise = 0.0117;
 					contrast = 0.8916;
 					brightness = 0.8172;
@@ -194,8 +201,8 @@ in
 				gaps_in = 5;
 				gaps_out = 15;
 				border_size = 2;
-				"col.active_border" = "rgb(${rose}) rgb(${rose}) 45deg";
-				"col.inactive_border" = "rgb(${muted})";
+				"col.active_border" = "rgb(${colors.Blue}) rgb(${colors.Text}) 45deg";
+				"col.inactive_border" = "rgb(${colors.Lavender})";
 				layout = "dwindle";
 		 	};
 

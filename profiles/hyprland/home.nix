@@ -74,4 +74,16 @@ in
 		};
 	};
 
+	systemd.user.services.waybar = {
+		Install.WantedBy = [ "graphical-session.target" ]; 
+		ServiceConfig = {
+			Description = "Waybar for all connected monitors";
+			After = [ "graphical-session.target" ];
+			Wants = [ "graphical-session.target" ];
+			ExecStartPre = "${pkgs.coreutils}/bin/pkill waybar || true";
+			ExecStart = "${pkgs.bash}/bin/bash -c 'for mon in $(${pkgs.hyprland}/bin/hyprctl monitors | grep \"Monitor\" | awk \"{print $2}\"); do WAYBAR_MONITOR=$mon ${pkgs.waybar}/bin/waybar & done'";
+			Restart = "always";
+		};
+
+	};
 }
