@@ -1,6 +1,7 @@
 { config, pkgs, inputs, spicetify-nix, lib, ... }:
 let
   spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+	sources = import ./npins;
 in 
 {
 	imports = [
@@ -18,10 +19,12 @@ in
 		../../modules/hyprland/hypridle.nix
 		../../modules/gtk.nix
 		spicetify-nix.homeManagerModules.default
+		(sources.catppuccin + "modules/home-manager")
 	];
 	home.sessionVariables = {
 		EDITOR = "nvim";
 	};
+
 	home.username  = "julian-m";
 	home.homeDirectory = "/home/julian-m";
 	home.stateVersion = "24.11";
@@ -61,8 +64,8 @@ in
 
 	programs.spicetify = {
 		enable = true;
-		theme = spicePkgs.themes.ziro;
-		colorScheme = "rose-pine";
+		theme = spicePkgs.themes.dribbblish;
+		colorScheme = "catppuccin-mocha";
 	};
 
 	xdg.desktopEntries = {
@@ -73,6 +76,8 @@ in
 			type = "Application";
 		};
 	};
+
+
 
 	systemd.user.services.waybar = {
 		Install.WantedBy = [ "graphical-session.target" ]; 
@@ -85,5 +90,14 @@ in
 			Restart = "always";
 		};
 
+	};
+
+	catppuccin = {
+		enable = true;
+		gtk.enable = true;
+		gtk.accent = "blue";
+		gtk.flavor = "mocha";
+		gtk.icon.accent = "blue";
+		gtk.icon.enable = true;
 	};
 }
