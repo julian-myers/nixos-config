@@ -7,9 +7,14 @@
 				after_sleep_cmd = "hyprctl dispatch dpms on";
 				ignore_dbus_inhibit = false;
 				lock_cmd = "hypridle";
+				inhibit_sleep = 2;
 			};
 
 			listener = [
+				{
+					timeout = 230;
+					on-timeout = "notify-send 'screen will lock in 10 seconds'";
+				}
 				{
 					timeout = 240;
 					on-timeout = "hyprlock";

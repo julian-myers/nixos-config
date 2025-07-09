@@ -48,7 +48,6 @@
 				cyan: #8be9fdff;
 				white: #d4be98ff;
 
-				base: #191724;
 				surface: #1f1d2e;
 				overlay: #26233a;
 				muted: #6e6a86;
@@ -68,6 +67,33 @@
 				margin: 0px;
 				padding: 0px;
 				spacing: 0px;
+
+				Rosewater: #f5e0dc;
+				Flamingo: #f2cdcd;
+				Pink: #f5c2e7;
+				Mauve: #cba6f7;
+				Red: #f38ba8;
+				Maroon: #eba0ac;
+				Peach: #fab387;
+				Yellow: #f9e2af;
+				Green: #a6e3a1;
+				Teal: #94e2d5;
+				Sky: #89dceb;
+				Sapphire: #74c7ec;
+				Blue: #89b4fa;
+				Lavender: #b4befe;
+				Text: #cdd6f4;
+				Subtext1: #bac2de;
+				Subtext0: #a6adc8;
+				Overlay2: #9399b2;
+				Overlay1: #7f849c;
+				Overlay0: #6c7086;
+				Surface2: #585b70;
+				Surface1: #45475a;
+				Surface0: #313244;
+				base: #1e1e2e;
+				Mantle: #181825;
+				Crust: #11111b;
 			}
 
 			window {
@@ -82,7 +108,7 @@
 			mainbox {
 				background-color: transparent;
 				border: 2px solid;
-				border-color: @rose;
+				border-color: @Lavender;
 				border-radius: 15px;
 				orientation: horizontal;
 				children: [ "dummywall" , "listbox" ];
@@ -111,19 +137,19 @@
 				horizontal-align: 0.45;
 				border-radius: 2em;
 				background-color: @base;
-				text-color: @subtle;
+				text-color: @Text;
 				border: 2px solid;
-				border-color: @subtle;
+				border-color: @Blue;
 			}
 
 			button selected {
-				text-color: @foam;
+				text-color: @Blue;
 			}
 
 			inputbar {
 				enabled: true;
 				children: [ "prompt" , "entry" ];
-				background-color: @text;
+				background-color: @Text;
 				text-color: @base;
 				border: 0px;
 				border-radius: 15px; 
@@ -132,12 +158,12 @@
 
 			prompt {
 				enable: true;
-				background-color: @text;
+				background-color: @Text;
 				text-color: @base;
 			}
 
 			entry {
-				background-color: @text;
+				background-color: @Text;
 				text-color: @base;
 			}
 
@@ -164,16 +190,16 @@
 					fixed-columns:               true;
 					cursor:                      "default";
 					background-color:            transparent;
-					text-color:                  @text;
+					text-color:                  @Text;
 			}
 
 			/**
 			scrollbar {
 				background-color: @base;
 				handle-width: 10px;
-				handle-color: @subtle;
+				handle-color: @Subtext1;
 				border: 1px solid;
-				border-color: @text;
+				border-color: @Text;
 				border-radius: 10px;
 			} */
 
@@ -192,12 +218,12 @@
 					border-radius: 10px;
 					cursor:                      pointer;
 					background-color:            transparent;
-					text-color:                  @text;
+					text-color:                  @Text;
 			}
 
 			element selected.normal {
 					background-color:            @base;
-					text-color:                  @pine;
+					text-color:                  @Blue;
 					border-color: @rose;
 			}
 

@@ -22,7 +22,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-	boot.kernelPackages = pkgs.linuxPackages_latest;
+	# boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -54,7 +54,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = false;
 	services.xserver.windowManager.i3.enable = true;
 
 	programs.hyprland.enable = true;
@@ -75,9 +75,9 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
+		wireplumber.enable = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+		audio.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -85,7 +85,8 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
+	hardware.bluetooth.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.julian-m = {
@@ -102,18 +103,12 @@
     enable = true;
   };
 
-	hardware.opengl = {
-		enable = true;
-	};
-
   services.xserver.videoDrivers = [ "nvidia" ];
-	boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.edid_fallback=1" ];
-
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
     powerManagement.finegrained = true;
-    open = true;
+    open = false;
     nvidiaSettings = true;
     prime = {
       intelBusId = "PCI:0:2:0";
@@ -123,8 +118,6 @@
 				enableOffloadCmd = true;
       };
     };
-    
-
   };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
@@ -147,6 +140,7 @@
 	];
 
   environment.systemPackages = with pkgs; [
+		bluez
 		glib
 		glibc
     dbus-glib

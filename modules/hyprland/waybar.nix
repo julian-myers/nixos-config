@@ -41,7 +41,6 @@ in
 	programs.waybar = {
 		enable = true;
 		package = pkgs.waybar;
-		systemd.enable = true;
 		settings = {
 			mainBar = {
 				position = "top";
@@ -84,6 +83,12 @@ in
 					format = " {title}";
 					max-length = 50;
 					separate-outputs = true;
+				};
+
+				"backlight/slider" = {
+					min = 0;
+					max = 100;
+					orientation = "vertical";
 				};
 
 				"clock" = {
@@ -379,6 +384,21 @@ in
 
 			#idle_inhibitor.deactivated {
 				color: ${colors.Text};
+			}
+
+			#backlight-slider slider {
+				min-height: 0px;
+				min-width: 0px;
+			}
+
+			#backlight-slider trough {
+				min-height: 80px;
+				min-width: 10px;
+			}
+
+			#backlight-slider highlight {
+				min-width: 10px;
+				background-color: white;
 			}
 		'';
 	};

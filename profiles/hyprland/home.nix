@@ -6,10 +6,10 @@ in
 	imports = [
 		../../modules/packages/packages_all.nix
 		../../modules/packages/hyprland_packages.nix
-		../../modules/dunst.nix 
+		#../../modules/dunst.nix 
 		../../modules/kitty.nix 
 		../../modules/zsh.nix 
-		# ../../modules/yazi/yazi.nix
+		../../modules/yazi/yazi.nix
 		../../modules/hyprland/rofi.nix
 		../../modules/hyprland/hyprland.nix
 		../../modules/hyprland/waybar.nix
@@ -17,11 +17,13 @@ in
 		../../modules/hyprland/hyprlock.nix
 		../../modules/hyprland/hypridle.nix
 		../../modules/gtk.nix
+		../../modules/steam.nix
 		spicetify-nix.homeManagerModules.default
 	];
 	home.sessionVariables = {
 		EDITOR = "nvim";
 	};
+
 
 	home.username  = "julian-m";
 	home.homeDirectory = "/home/julian-m";
@@ -49,7 +51,6 @@ in
 
 	qt = {
 		enable = true;
-		platformTheme.name = "kvantum";
 	};
 	
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -68,18 +69,6 @@ in
 			exec = "spotify";
 			icon = "spotify";
 			type = "Application";
-		};
-	};
-
-	systemd.user.services.waybar = {
-		Install.WantedBy = [ "graphical-session.target" ]; 
-		ServiceConfig = {
-			Description = "Waybar for all connected monitors";
-			After = [ "graphical-session.target" ];
-			Wants = [ "graphical-session.target" ];
-			ExecStartPre = "${pkgs.coreutils}/bin/pkill waybar || true";
-			ExecStart = "${pkgs.bash}/bin/bash -c 'for mon in $(${pkgs.hyprland}/bin/hyprctl monitors | grep \"Monitor\" | awk \"{print $2}\"); do WAYBAR_MONITOR=$mon ${pkgs.waybar}/bin/waybar & done'";
-			Restart = "always";
 		};
 	};
 }

@@ -72,7 +72,8 @@ in
 			"$browser" = "firefox";
 
 			monitor = [
-				"eDP-1, preferred, 0x0, 1.3333"
+				"eDP-1, preferred, 0x0, 1.333"
+				"eDP-2, preferred, 0x0, 1.333"
 				"desc:Dell Inc. DELL S2725DS 4DGBS44, preferred, -1280x-1600, 1"
 				"desc:Dell Inc. DELL S3222DGM FZPYJK3, preferred, 1280x-1600, 1"
 			];
@@ -90,6 +91,7 @@ in
 				"ALT, O, togglesplit"
 				"ALT, backspace, killactive,"
 				"SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+				# screenshot!
 				"ALT_SHIFT, P, exec, grim"
 
 				# windows
@@ -176,6 +178,8 @@ in
 				"opaque, title:(Julian's App)(.*)"
 				"noblur, title:(Julian's App)(.*)"
 				"float, title:(Julian's App)(.*)"
+				"float, title:(Qalculate!)(.*)"
+				"opaque, title:(Qalculate!)(.*)"
 			];
 
 			layerrule = [
@@ -190,8 +194,7 @@ in
 			exec-once = [
 				"hyprpaper"
 				"hypridle"
-				"wl-paste --type text --watch cliphist store"
-				"wl-paste --type image --watch cliphist store"
+				"eww open bar"
 			];
 
 			# ----- Decorations --------

@@ -6,9 +6,10 @@
 		home-manager.url = "github:nix-community/home-manager/release-24.11";
 		spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 		spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+		catppuccin.url = "github:catppuccin/nix";
 	};
 
-	outputs = { self, nixpkgs, home-manager, spicetify-nix, ... }: 
+	outputs = { self, nixpkgs, home-manager, spicetify-nix, catppuccin, ... }: 
 		let
 		  lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -30,6 +31,7 @@
 				extraSpecialArgs = {inherit spicetify-nix;};
 				modules = [
 					(./. + "/profiles" + ("/" + profile) + "/home.nix")
+					catppuccin.homeManagerModules.catppuccin
 				];
 			};
 		};

@@ -25,6 +25,8 @@
 			cs120 = "cd ~/School/spring2025/cs120";
 			nixconf = "cd ~/.dotfiles && nvim";
 			analysis-book = "cd ~/School/spring2025/mth428/ && open primer-real-analysis.pdf";
+			anvilcomp = "cd ~/School/TLR-2025 && ssh -i supercomputer x-jmyers4@login03.anvil.rcac.purdue.edu";
+			deltacomp = "cd ~/School/TLR-2025 && ssh -l jmyers4 dtai-login.delta.ncsa.illinois.edu -o PreferredAuthentications=keyboard-interactive,password";
 		};
 
 		zsh-abbr = {

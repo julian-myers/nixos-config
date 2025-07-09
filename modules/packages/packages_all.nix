@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 {
 	home.packages = with pkgs;[
+		texlivePackages.beamer
+		dunst
+		jaq
+		socat
+		jq
 		npins
 		catppuccin
 		rustup
@@ -54,9 +59,9 @@
 		curl
 		neofetch
 		tree
-		bluez
 		font-awesome
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 		openjfx23
+		xterm
   ];
 }
