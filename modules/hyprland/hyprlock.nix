@@ -92,6 +92,16 @@ in
 					valign = "top";
 					position = "25, -50";
 				}
+				{
+					monitor = "";
+					text = "cmd[update:10000] spinning-cube" ;
+					color = "${colors.text}";
+					font_family = "JetBrainsMono Nerd Font";
+					font_size = 24;
+					halign = "left";
+					valign = "top";
+					position = "-25, 50";
+				}
 			];
 		};
 	};

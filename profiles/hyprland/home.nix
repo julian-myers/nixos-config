@@ -17,11 +17,12 @@ in
 		../../modules/hyprland/hyprlock.nix
 		../../modules/hyprland/hypridle.nix
 		../../modules/gtk.nix
-		../../modules/steam.nix
 		spicetify-nix.homeManagerModules.default
 	];
 	home.sessionVariables = {
 		EDITOR = "nvim";
+		GRIM_DEFAULT_DIR = "/home/julian-m/School/spring2025/class-notes/images";
+		RASPI = "pi@192.168.6.216";
 	};
 
 

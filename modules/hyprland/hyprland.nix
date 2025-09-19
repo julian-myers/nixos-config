@@ -105,6 +105,16 @@ in
 				"ALT_SHIFT, k, movewindow, u"
 				"ALT_SHIFT, j, movewindow, d"
 
+				"ALT_SHIFT, f, fullscreen, 0"
+
+				# window groups
+				"ALT, g, togglegroup"
+				"CONTROL_ALT, p, changegroupactive, f"
+				"CONTROL_ALT, o, changegroupactive, b"
+				"CONTROL_ALT, l, movewindoworgroup, r"
+				"CONTROL_ALT, h, movewindoworgroup, l"
+				"CONTROL_ALT, g, lockgroups, toggle"
+
 				# workspaces
 				"ALT, 1, workspace, 1"
 				"ALT, 2, workspace, 2"

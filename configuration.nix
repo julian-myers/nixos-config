@@ -51,6 +51,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+	hardware.xpadneo.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -101,6 +102,25 @@
   # openGL
   hardware.graphics = {
     enable = true;
+		extraPackages = with pkgs; [
+			xorg.libXtst
+			xorg.libXi
+			xorg.libXrender
+			xorg.libX11
+			xorg.libXxf86vm
+			vulkan-loader
+			xorg.libXext
+			xorg.libXcursor
+			xorg.libXinerama
+				xorg.libXrandr
+			glfw
+			libGL
+			glib
+			libxkbcommon
+			udev
+			freetype
+			fontconfig
+		];
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -129,9 +149,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
   programs.zsh.enable = true;
-
+	programs.steam.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
 	fonts.packages = with pkgs; [
@@ -158,7 +177,6 @@
     vim
     libstdcxx5
 		ncurses
-    neovim
     zsh
 		alsa-utils
     kitty

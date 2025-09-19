@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 {
+
 	home.packages = with pkgs;[
+		texinit
+		spinning-cube
+		dbus
+		R
+		winetricks
+		steam-run
 		texlivePackages.beamer
 		dunst
 		jaq
