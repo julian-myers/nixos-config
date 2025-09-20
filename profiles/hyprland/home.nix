@@ -17,6 +17,7 @@ in
 		../../modules/hyprland/hyprlock.nix
 		../../modules/hyprland/hypridle.nix
 		../../modules/gtk.nix
+		../../scripts/scripts.nix
 		spicetify-nix.homeManagerModules.default
 	];
 	home.sessionVariables = {
