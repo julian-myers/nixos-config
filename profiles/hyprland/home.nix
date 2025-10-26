@@ -18,6 +18,7 @@ in
 		../../modules/hyprland/hypridle.nix
 		../../modules/gtk.nix
 		../../scripts/scripts.nix
+		../../modules/starship.nix
 		spicetify-nix.homeManagerModules.default
 	];
 	home.sessionVariables = {
@@ -25,7 +26,6 @@ in
 		GRIM_DEFAULT_DIR = "/home/julian-m/School/spring2025/class-notes/images";
 		RASPI = "pi@192.168.6.216";
 	};
-
 
 	home.username  = "julian-m";
 	home.homeDirectory = "/home/julian-m";
@@ -71,6 +71,18 @@ in
 			exec = "spotify";
 			icon = "spotify";
 			type = "Application";
+		};
+	};
+
+	programs.ruff = {
+		enable = true;
+		settings = {
+		  line-length = 80;
+			per-file-ignores = { "__init__.py" = [ "F401" ]; };
+			lint = {
+				select = [ "E4" "E7" "E9" "F" ];
+				ignore = [ ];
+			};
 		};
 	};
 }

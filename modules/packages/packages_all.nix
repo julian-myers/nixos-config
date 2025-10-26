@@ -2,7 +2,6 @@
 {
 
 	home.packages = with pkgs;[
-		texinit
 		spinning-cube
 		dbus
 		R

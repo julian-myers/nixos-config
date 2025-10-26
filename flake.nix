@@ -11,10 +11,9 @@
 		catppuccin.url = "github:catppuccin/nix";
 		spinning-cube.url = "path:/home/julian-m/Code/spinning-cube/";
 		spinning-cube.inputs.nixpkgs.follows = "nixpkgs";
-		texinit.url = "path:/home/julian-m/.dotfiles/scripts/";
 	};
 
-	outputs = { self, nixpkgs, home-manager, spicetify-nix, catppuccin, spinning-cube, nixpkgs-unstable, texinit, ... }: 
+	outputs = { self, nixpkgs, home-manager, spicetify-nix, catppuccin, spinning-cube, nixpkgs-unstable, ... }: 
 		let
 		  lib = nixpkgs.lib;
 			system = "x86_64-linux";

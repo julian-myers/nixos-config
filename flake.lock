@@ -127,8 +127,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "spicetify-nix": "spicetify-nix",
-        "spinning-cube": "spinning-cube",
-        "texinit": "texinit"
+        "spinning-cube": "spinning-cube"
       }
     },
     "rust-overlay": {
@@ -217,23 +216,6 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
-      }
-    },
-    "texinit": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1758295036,
-        "narHash": "sha256-KUAa8fnmxPHZIWktZAyaQ2XXd2mnyi6CTDaYGy7Mgu4=",
-        "path": "/home/julian-m/.dotfiles/scripts/",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/julian-m/.dotfiles/scripts/",
-        "type": "path"
       }
     }
   },
