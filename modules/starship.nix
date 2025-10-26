@@ -46,26 +46,26 @@
 
 			# Show Nix shell environment
 			env_var.IN_NIX_SHELL = {
-				symbol = "❄️ ";
+				symbol = " ";
 				format = "[$symbol$env_value]($style) ";
 				style = "bold #b4befe";
 			};
 
 			# Rust
 			rust = {
-				symbol = " ";
+				symbol = " ";
 				style = "bold #f38ba8";
 			};
 
 			# Python
 			python = {
-				symbol = " ";
+				symbol = "󰌠 ";
 				style = "bold #a6e3a1";
 			};
 
 			# Node.js
 			nodejs = {
-				symbol = " ";
+				symbol = "󰎙 ";
 				style = "bold #a6e3a1";
 			};
 

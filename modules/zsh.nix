@@ -9,8 +9,9 @@
 		};
 
 		autosuggestion.enable = true;
+
 		oh-my-zsh = {
-			enable = true;
+			enable = false;
 			theme = "refined";
 		};
 
