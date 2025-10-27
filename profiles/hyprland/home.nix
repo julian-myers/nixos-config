@@ -19,6 +19,7 @@ in
 		../../modules/gtk.nix
 		../../scripts/scripts.nix
 		../../modules/starship.nix
+		../../modules/thunderbird.nix
 		spicetify-nix.homeManagerModules.default
 	];
 	home.sessionVariables = {
