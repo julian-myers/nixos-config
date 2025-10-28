@@ -11,18 +11,15 @@ in
 	programs.yazi = {
 		enable = true;
 		enableZshIntegration = true;
-
 		flavors = {
 			gruvbox-dark = yazi-flavors; 
 		};
-
 		theme = {
 			flavor = {
 				dark = "gruvbox-dark";
 				light = "gruvbox-dark";
 			};
 		};
-
 		settings = {
 			manager = {
 				ratio = [ 1 3 4 ];
@@ -39,8 +36,6 @@ in
 						{ run = "$EDITOR $1"; orphan = false; block = true; }
 				];
 			};
-
 		};
-
 	};
 }

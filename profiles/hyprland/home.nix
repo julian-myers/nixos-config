@@ -20,6 +20,7 @@ in
 		../../scripts/scripts.nix
 		../../modules/starship.nix
 		../../modules/thunderbird.nix
+		../../modules/zathura.nix
 		spicetify-nix.homeManagerModules.default
 	];
 	home.sessionVariables = {
