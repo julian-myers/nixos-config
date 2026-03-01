@@ -4,7 +4,7 @@
 		enable = true;
 		options = {
 			default-bg = "#1e1e2e";
-			default-fg = "#cdd6f4"
+			default-fg = "#cdd6f4";
 		};
 	};
 }

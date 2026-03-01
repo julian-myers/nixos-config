@@ -6,23 +6,28 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
-	security.sudo.extraConfig = ''
-		yourusername ALL=(ALL) NOPASSWD: /sbin/reboot, /sbin/poweroff, /bin/systemctl suspend
-	'';
-	security.pam.services.hyprlock = {};
+  security.sudo.extraConfig = ''
+    		yourusername ALL=(ALL) NOPASSWD: /sbin/reboot, /sbin/poweroff, /bin/systemctl suspend
+    	'';
+  security.pam.services.hyprlock = { };
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
+  boot.extraModprobeConfig = ''
+    		options btusb enable_autosuspend=0
+    	'';
 
   boot.initrd.luks.devices."luks-a54c9a99-0731-4996-af31-d2783c30216f".device = "/dev/disk/by-uuid/a54c9a99-0731-4996-af31-d2783c30216f";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-	# boot.kernelPackages = pkgs.linuxPackages_6_12;
+  # boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -51,16 +56,16 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-	hardware.xpadneo.enable = true;
+  hardware.xpadneo.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = false;
-	services.xserver.windowManager.i3.enable = true;
+  services.xserver.windowManager.i3.enable = true;
 
-	programs.hyprland.enable = true;
+  programs.hyprland.enable = true;
 
-	programs.nix-ld.enable = true;
+  programs.nix-ld.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -78,9 +83,9 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-		wireplumber.enable = true;
+    wireplumber.enable = true;
     pulse.enable = true;
-		audio.enable = true;
+    audio.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -89,40 +94,54 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
-	hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        Privacy = "device";
+        JustWorksRepairing = "always";
+      };
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.julian-m = {
     isNormalUser = true;
     description = "Julian Myers";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
-  }; 
+  };
 
   # openGL
   hardware.graphics = {
     enable = true;
-		extraPackages = with pkgs; [
-			xorg.libXtst
-			xorg.libXi
-			xorg.libXrender
-			xorg.libX11
-			xorg.libXxf86vm
-			vulkan-loader
-			xorg.libXext
-			xorg.libXcursor
-			xorg.libXinerama
-				xorg.libXrandr
-			glfw
-			libGL
-			glib
-			libxkbcommon
-			udev
-			freetype
-			fontconfig
-		];
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      egl-wayland
+      vulkan-loader
+      vulkan-tools
+      libva
+      nvidia-vaapi-driver
+      xorg.libXtst
+      xorg.libXi
+      xorg.libXrender
+      xorg.libX11
+      xorg.libXxf86vm
+      vulkan-loader
+      xorg.libXext
+      xorg.libXcursor
+      xorg.libXinerama
+      xorg.libXrandr
+      glfw
+      libGL
+      glib
+      libxkbcommon
+      udev
+      freetype
+      fontconfig
+    ];
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -136,8 +155,8 @@
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
       offload = {
-      	enable = true;
-				enableOffloadCmd = true;
+        enable = true;
+        enableOffloadCmd = true;
       };
     };
   };
@@ -152,43 +171,50 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   programs.zsh.enable = true;
-	programs.steam.enable = true;
+  programs.steam.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-	fonts.packages = with pkgs; [
-		nerdfonts
-		font-awesome
-	];
+  fonts.packages = with pkgs; [
+    nerdfonts
+    font-awesome
+  ];
 
   environment.systemPackages = with pkgs; [
-		bluez
-		glib
-		glibc
+    bluez
+    glib
+    glibc
     dbus-glib
     pkg-config
     python3
-		cmake
+    cmake
     python3Packages.setuptools
     python3Packages.cython
-		ninja
-		python3Packages.ninja
-		python3Full
-		python3Packages.dbus-python
-		python3Packages.pip
-		dbus
+    ninja
+    python3Packages.ninja
+    python3Full
+    python3Packages.dbus-python
+    python3Packages.pip
+    dbus
     vim
     libstdcxx5
-		ncurses
+    ncurses
     zsh
-		alsa-utils
+    alsa-utils
     kitty
     lshw
-		i3
+    i3
     git
     nodejs_23
     brave
     wget
     gcc
+    nixd
+    xorg.libX11
+    xorg.libXrandr
+    xorg.libXinerama
+    xorg.libXcursor
+    xorg.libXi
+    xorg.libXext
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -217,6 +243,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-  
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
