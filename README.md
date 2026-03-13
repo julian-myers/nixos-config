@@ -1,5 +1,5 @@
 # Julian's NixOS Config!
 
-#### i3 window manager
+#### Hyprland!
 
 ![alt text](Desktop.png "Desktop")

@@ -94,7 +94,8 @@ in
         "ALT, A, exec, eww active-windows | grep -q \"dashboard\" && eww close dashboard || eww open dashboard"
         "ALT, U, exec, eww active-windows | grep -q \"bar\" && eww close bar || eww open bar"
         "ALT_SHIFT, P, exec, grim"
-        " , PRINT, exec, hyprshot -m region"
+        " , PRINT, exec, hyprshot -m region --clipboard-only"
+        "ALT, PRINT, exec, hyprshot -m region"
 
         # windows
         "ALT, h, movefocus, l"
