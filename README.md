@@ -2,4 +2,4 @@
 
 #### Hyprland!
 
-![alt text](Desktop.png "Desktop")
+![alt text](hyprland.png "Desktop")
