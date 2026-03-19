@@ -1,4 +1,4 @@
-{stdenv, cmake, lib, ncurses, sqlite, spdlog, tomplusplus, gtest}:
+{stdenv, cmake, lib, ncurses, sqlite, spdlog, tomlplusplus, gtest}:
 stdenv.stdenv.mkDerivation (finalAttrs: {
   pname = "quick-notes";
   version = "0.1.0";
@@ -11,7 +11,7 @@ stdenv.stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
 		spdlog
 		sqlite
-		tomplusplus
+		tomlplusplus
 		gtest
 		ncurses
   ];

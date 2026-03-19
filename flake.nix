@@ -20,10 +20,14 @@
       overlays = [
         spinning-cube.overlays.default
         (final: prev:
-          let u = import nixpkgs-unstable { inherit (final) system; };
+          let u = import nixpkgs-unstable {
+						inherit (final) system;
+						config.allowUnfree = true;
+					};
           in {
             neovim = u.neovim;
             neovim-unwrapped = u.neovim-unwrapped;
+						claude-code = u.claude-code;
           })
       ];
       pkgs = import nixpkgs {
@@ -32,6 +36,8 @@
       profile = "hyprland";
     in
     {
+			packages.x86_64-linux.quick-notes = pkgs.callPackage ./packages/quick-notes {};
+
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
@@ -44,7 +50,7 @@
       homeConfigurations = {
         julian-m = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit spicetify-nix; };
+          extraSpecialArgs = { inherit spicetify-nix self; };
           modules = [
             (./. + "/profiles" + ("/" + profile) + "/home.nix")
             # catppuccin.homeModules.catppuccin
